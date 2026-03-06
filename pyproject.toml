@@ -34,9 +34,6 @@ Issues = "TODO"
 
 [project.scripts]
 speech-mine = "speech_mine.diarizer.cli:main"
-extract-audio = "speech_mine.diarizer.cli_extract:main"
-format-script = "speech_mine.diarizer.cli_format:main"
-chunk-audio = "speech_mine.pickaxe.cli_chunk:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/speech_mine"]

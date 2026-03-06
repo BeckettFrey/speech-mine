@@ -1,16 +1,14 @@
 
 # speech-mine
 
-Speech diarization and transcript formatting toolkit. Extract speaker-labeled transcripts from audio and format them into readable scripts.
-
+Speech diarization and transcript analysis toolkit. Extract speaker-labeled transcripts from audio, format them into readable scripts, search them with fuzzy matching, and pre-process audio with chunking.
 
 ## Requirements
 
 - Python 3.11+
 - HuggingFace access token (for pyannote models)
 - GPU recommended for faster processing
-- Audio files in .wav format
-
+- ffmpeg installed (for audio loading)
 
 ## Installation
 
@@ -28,316 +26,314 @@ cd speech-mine
 uv sync
 ```
 
-## Usage Examples
+---
 
+## Modules
 
-### CLI Usage
+### `extract` — Transcription + Speaker Diarization
 
-#### Main Entrypoint
+Transcribes audio and labels each segment with the speaker who said it. Uses [faster-whisper](https://github.com/SYSTRAN/faster-whisper) for transcription and [pyannote](https://github.com/pyannote/pyannote-audio) for speaker diarization.
+
+**Usage:**
 ```bash
-# Show all available commands
-uv run speech-mine --help
-
-# Extract transcript from audio file
-uv run speech-mine extract meeting.wav output.csv --hf-token YOUR_HUGGINGFACE_TOKEN
-
-# Format CSV to readable movie-style script
-uv run speech-mine format output.csv formatted_script.txt
+uv run speech-mine extract <audio> <output.csv> --hf-token TOKEN [options]
 ```
 
-#### Alternative Entrypoints
+**Supported audio formats:** `.wav`, `.mp3`, `.ogg`, `.flac`, `.m4a`, `.webm`
+
+**Options:**
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--hf-token TOKEN` | *(required)* | HuggingFace access token |
+| `--model SIZE` | `large-v3` | Whisper model size |
+| `--device` | `auto` | `auto`, `cpu`, or `cuda` |
+| `--compute-type` | `float16` | `float16` (GPU), `float32` (CPU), `int8` |
+| `--num-speakers N` | — | Exact speaker count (best accuracy when known) |
+| `--min-speakers N` | `1` | Minimum expected speakers |
+| `--max-speakers N` | — | Maximum expected speakers |
+| `--verbose` | — | Enable verbose logging |
+
+**Examples:**
 ```bash
-# Direct audio extraction
-uv run extract-audio meeting.wav output.csv --hf-token YOUR_TOKEN
-
-# Direct script formatting
-uv run format-script output.csv script.txt
-```
-
-
-### Workflow Example
-
-#### Meeting Transcription
-```bash
-# 1. Extract with known speaker count (best accuracy)
-uv run speech-mine extract meeting.wav transcript.csv \
+# Basic (CPU)
+uv run speech-mine extract interview.mp3 output.csv \
   --hf-token YOUR_TOKEN \
-  --num-speakers 4 \
-  --model large-v3 \
   --compute-type float32
 
-# 2. Format to readable script
-uv run speech-mine format transcript.csv meeting_script.txt
-
-# 3. Create custom speaker names template
-uv run speech-mine format transcript.csv script.txt --create-template
-
-# 4. Format with custom speaker names
-uv run speech-mine format transcript.csv final_script.txt \
-  --speakers transcript_speaker_names.json
-```
-
-#### Interview Processing (2 speakers)
-```bash
-# Perfect for interviews
-uv run speech-mine extract interview.wav interview.csv \
+# 2-person interview with known speaker count
+uv run speech-mine extract interview.wav output.csv \
   --hf-token YOUR_TOKEN \
   --num-speakers 2 \
-  --model medium \
   --compute-type float32
 
-uv run speech-mine format interview.csv interview_script.txt
-```
-
-#### CPU-Only Processing
-```bash
-# For systems without GPU
-uv run speech-mine extract audio.wav output.csv \
-  --hf-token YOUR_TOKEN \
-  --model base \
-  --device cpu \
-  --compute-type float32 \
-  --num-speakers 2
-```
-
-### Advanced Usage
-
-```bash
-# Use specific Whisper model and GPU with known number of speakers
-uv run speech-mine extract interview.wav results.csv \
+# GPU with best accuracy model
+uv run speech-mine extract meeting.wav output.csv \
   --hf-token YOUR_TOKEN \
   --model large-v3 \
   --device cuda \
-  --num-speakers 2 \
   --compute-type float16 \
-  --verbose
+  --num-speakers 4
+```
 
-# Use smaller model for faster CPU processing
-uv run speech-mine extract podcast.wav transcript.csv \
-  --hf-token YOUR_TOKEN \
-  --model base \
-  --device cpu \
-  --compute-type float32 \
-  --min-speakers 2 \
-  --max-speakers 4
+**Output:** Two files are written:
+- `output.csv` — segment and word-level transcript data
+- `output_metadata.json` — language, duration, speaker list, processing info
 
-# Meeting with exact number of known speakers (best accuracy)
-uv run speech-mine extract meeting.wav transcript.csv \
-  --hf-token YOUR_TOKEN \
-  --num-speakers 5 \
-  --model medium \
-  --compute-type float32
+**⚠️ Important:** Always use `--compute-type float32` when running on CPU. The default (`float16`) requires a GPU.
+
+---
+
+### `format` — Script Formatting
+
+Converts the CSV output from `extract` into a human-readable, movie-style script.
+
+**Usage:**
+```bash
+uv run speech-mine format <input.csv> <output.txt> [options]
+```
+
+**Options:**
+
+| Flag | Description |
+|------|-------------|
+| `--speakers FILE` | JSON file mapping `SPEAKER_00` → custom name |
+| `--create-template` | Generate a speaker names template JSON from the CSV |
+
+**Examples:**
+```bash
+# Basic formatting
+uv run speech-mine format output.csv script.txt
+
+# Create a speaker names template to fill in
+uv run speech-mine format output.csv script.txt --create-template
 
 # Format with custom speaker names
-echo '{"SPEAKER_00":"Alice","SPEAKER_01":"Bob"}' > speakers.json
-uv run speech-mine format transcript.csv script.txt --speakers speakers.json
+uv run speech-mine format output.csv script.txt --speakers output_speaker_names.json
 ```
 
-
-### Batch Processing
+**Custom speaker names workflow:**
 ```bash
-# See scripts/batch_process.sh and scripts/batch_format.sh for examples
+# 1. Generate template (creates output_speaker_names.json)
+uv run speech-mine format output.csv script.txt --create-template
 
-# Example: batch_format.sh
-./scripts/batch_format.sh input_dir output_dir
+# 2. Edit the template
+# {"SPEAKER_00": "Alice", "SPEAKER_01": "Bob"}
 
-# Example: batch_process.sh
-./scripts/batch_process.sh input_dir output_dir
+# 3. Format with names
+uv run speech-mine format output.csv final_script.txt --speakers output_speaker_names.json
 ```
 
-
-### Model Options
-
-Available Whisper models (smaller = faster, larger = more accurate):
-- `tiny`: Fastest, least accurate
-- `base`: Good balance for quick processing
-- `small`: Better accuracy, moderate speed
-- `medium`: Good accuracy and speed
-- `large-v3`: Best accuracy (default)
-- `turbo`: Fast and accurate
-
-### Device and Compute Type Options
-
-**Device Options:**
-- `auto`: Automatically detect best device (default)
-- `cuda`: Force GPU usage (requires NVIDIA GPU)
-- `cpu`: Force CPU usage
-
-**Compute Type Options:**
-- `float32`: CPU-compatible, slower but works everywhere (recommended for CPU)
-- `float16`: GPU-optimized, faster (recommended for CUDA)
-- `int8`: Fastest, slightly lower accuracy
-
-**⚠️ Important:** Use `--compute-type float32` when running on CPU to avoid errors!
-
-
-## Speaker Optimization
-
-### Improving Accuracy with Known Speaker Counts
-
-**Best accuracy - exact number of speakers:**
-```bash
-uv run speech-mine extract meeting.wav output.csv \
-  --hf-token $HF_TOKEN \
-  --num-speakers 3 \
-  --compute-type float32
-```
-
-**Range-based speaker detection:**
-```bash
-uv run speech-mine extract conference.wav output.csv \
-  --hf-token $HF_TOKEN \
-  --min-speakers 2 \
-  --max-speakers 8 \
-  --compute-type float32
-```
-
-### Speaker Parameter Guidelines
-
-| Parameter | Description | When to Use |
-|-----------|-------------|-------------|
-| `--num-speakers N` | Exact number of speakers | When you know exactly how many speakers (best accuracy) |
-| `--min-speakers N` | Minimum speakers (default: 1) | Set to 2+ if you know multiple people speak |
-| `--max-speakers N` | Maximum speakers | Limit false speaker detection in noisy audio |
-
-**💡 Pro tip**: Specifying `--num-speakers` when you know the exact count can improve accuracy by 15-30%!
-
-
-## Output Format
-
-The tool generates multiple output files:
-
-### CSV File (`output.csv`)
-Contains both segment-level and word-level data:
-
-| Column | Description |
-|--------|-------------|
-| `type` | "segment" or "word" |
-| `speaker` | Speaker identifier (SPEAKER_00, SPEAKER_01, etc.) |
-| `start` | Start timestamp in seconds |
-| `end` | End timestamp in seconds |
-| `text` | Full segment text |
-| `word` | Individual word (for word-type rows) |
-| `word_position` | Position of word in segment |
-| `confidence` | Confidence score (0-1) |
-| `overlap_duration` | Speaker overlap duration |
-
-### Formatted Script File (`script.txt`)
-Human-readable movie-style script format:
+**Output format:**
 ```
 ================================================================================
-                   TRANSCRIPT
+TRANSCRIPT
 ================================================================================
 
 RECORDING DETAILS:
 ----------------------------------------
-File: meeting.wav
-Duration: 30:45
-Language: ENGLISH (confidence: 95.2%)
-Speakers: 3
-Processed: 2025-09-08 16:35:00
+File: interview.mp3
+Duration: 08:47
+Language: EN (confidence: 99.0%)
+Speakers: 2
+Processed: 2026-03-05 22:00:00
 
 CAST:
 ----------------------------------------
 SPEAKER A
 SPEAKER B
-SPEAKER C
 
 TRANSCRIPT:
 ----------------------------------------
 
 [00:00 - 00:05] SPEAKER A:
-  Good morning everyone, let's start the meeting.
+    So tell me about your background.
 
 [00:06 - 00:12] SPEAKER B:
-  Thanks for organizing this. I have the quarterly
-  report ready to share.
+    Sure, I started out in radio back in the eighties.
 
-  [...3 second pause...]
+    [...5:30 pause...]
 
-[00:15 - 00:22] SPEAKER C:
-  Perfect, I'd like to hear about the sales numbers
-  first.
+[05:42 - 05:50] SPEAKER A:
+    And how did that shape your career?
 ```
 
-### Metadata File (`output_metadata.json`)
-Contains processing information:
+---
+
+### `chunk-audio` — Audio Chunking
+
+Splits a `.wav` file into smaller segments based on a YAML configuration defining time boundaries. Useful for pre-processing long recordings before extraction.
+
+\*\*Usage:\*\*
+```bash
+uv run speech-mine chunk <audio.wav> <config.yaml> <output_dir/> [options]
+```
+
+**Note:** Only `.wav` input files are supported. Output chunks are also `.wav`.
+
+**Options:**
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--fade-in MS` | `0` | Fade in duration in milliseconds |
+| `--fade-out MS` | `0` | Fade out duration in milliseconds |
+| `--padding MS` | `0` | Silence padding added to both ends (ms) |
+| `--verbose` | — | Print file sizes for each chunk |
+
+**YAML config format:**
+```yaml
+chunks:
+  - start: 0.0
+    end: 30.0
+    name: "intro"        # optional — used in output filename
+  - start: 30.0
+    end: 120.0
+    name: "discussion"
+  - start: 120.0
+    end: 300.0
+    # no name — output will be "2.wav"
+```
+
+Output filenames follow the pattern `{index}.{name}.wav` or `{index}.wav` if no name is set. Chunks are sorted by start time before indexing.
+
+**Examples:**
+```bash
+# Basic chunking
+uv run speech-mine chunk recording.wav config.yaml chunks/
+
+# With fade effects and padding
+uv run speech-mine chunk recording.wav config.yaml chunks/ \
+  --fade-in 500 \
+  --fade-out 500 \
+  --padding 100 \
+  --verbose
+```
+
+---
+
+### `search` — Fuzzy Transcript Search
+
+Searches a transcript CSV for words or phrases using fuzzy matching. Returns ranked matches with timestamps, speaker context, and similarity scores.
+
+\*\*Usage:\*\*
+```bash
+uv run speech-mine search <query> <transcript.csv> [metadata.json] [options]
+```
+
+**Options:**
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--similarity-range MIN MAX` | `0.0 1.0` | Filter results by similarity score |
+| `--top-k N` | `10` | Maximum results to return |
+| `--output-type` | `utterance` | `utterance` or `timestamp` |
+| `--save-path FILE` | — | Save JSON output to file (default: stdout) |
+
+**Output types:**
+- `utterance` — returns utterance index, word positions within the utterance, and full segment context
+- `timestamp` — returns a time window with per-word start/end times
+
+**Examples:**
+```bash
+# Search for a phrase, print to stdout
+uv run speech-mine search "childhood abuse" output.csv
+
+# High-confidence matches, save to file
+uv run speech-mine search "radio career" output.csv output_metadata.json \
+  --similarity-range 0.8 1.0 \
+  --top-k 5 \
+  --output-type timestamp \
+  --save-path results.json
+```
+
+---
+
+## Output Format Reference
+
+### CSV (`output.csv`)
+
+Contains interleaved segment-level and word-level rows:
+
+| Column | Description |
+|--------|-------------|
+| `type` | `"segment"` or `"word"` |
+| `speaker` | Speaker ID (e.g. `SPEAKER_00`) |
+| `start` | Start time in seconds |
+| `end` | End time in seconds |
+| `text` | Full segment text |
+| `word` | Individual word (word rows only) |
+| `word_position` | Word index within segment (word rows only) |
+| `confidence` | Confidence score (0–1) |
+| `overlap_duration` | Speaker overlap duration in seconds |
+
+### Metadata (`output_metadata.json`)
 
 ```json
 {
-  "audio_file": "meeting.wav",
+  "audio_file": "interview.mp3",
   "language": "en",
-  "language_probability": 0.95,
-  "duration": 1800.0,
-  "total_segments": 234,
-  "total_words": 3456,
-  "speakers": ["SPEAKER_00", "SPEAKER_01", "SPEAKER_02"],
-  "processing_timestamp": "2025-09-08 14:30:00"
+  "language_probability": 0.99,
+  "duration": 527.19,
+  "total_segments": 87,
+  "total_words": 1234,
+  "speakers": ["SPEAKER_00", "SPEAKER_01"],
+  "processing_timestamp": "2026-03-05 22:00:00"
 }
 ```
 
+---
 
-## Setup Requirements
+## Setup
 
 ### HuggingFace Token
-1. Create account at [HuggingFace](https://huggingface.co)
-2. Go to Settings → Access Tokens
-3. Create a new token with read permissions
-4. Accept the user agreement at [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1)
 
-### Audio File Requirements
-- Format: .wav files only
-- Quality: 16kHz+ sample rate recommended
-- Duration: No specific limits (longer files take more time)
-- Channels: Mono or stereo supported
+Required for pyannote diarization models:
 
-### Performance vs. Accuracy Trade-offs
+1. Create account at [huggingface.co](https://huggingface.co)
+2. Go to Settings → Access Tokens → New token (read permissions)
+3. Accept the user agreement at [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1)
 
-| Model | Speed | Accuracy | Best For |
-|-------|-------|----------|----------|
-| `tiny` | ⚡⚡⚡⚡⚡ | ⭐⭐ | Quick tests, drafts |
-| `base` | ⚡⚡⚡⚡ | ⭐⭐⭐ | Fast processing, good quality |
-| `small` | ⚡⚡⚡ | ⭐⭐⭐⭐ | Balanced speed/accuracy |
-| `medium` | ⚡⚡ | ⭐⭐⭐⭐ | Good quality, reasonable speed |
-| `large-v3` | ⚡ | ⭐⭐⭐⭐⭐ | Best quality, slow |
+Pass the token via `--hf-token YOUR_TOKEN` on every `extract` call.
 
+---
+
+## Model Options
+
+| Model | Speed | Accuracy | Notes |
+|-------|-------|----------|-------|
+| `tiny` | ⚡⚡⚡⚡⚡ | ⭐⭐ | Quick tests |
+| `base` | ⚡⚡⚡⚡ | ⭐⭐⭐ | Fast with decent quality |
+| `small` | ⚡⚡⚡ | ⭐⭐⭐⭐ | Good balance |
+| `medium` | ⚡⚡ | ⭐⭐⭐⭐ | Higher accuracy |
+| `large-v3` | ⚡ | ⭐⭐⭐⭐⭐ | Best accuracy (default) |
+| `turbo` | ⚡⚡⚡ | ⭐⭐⭐⭐⭐ | Fast + accurate |
+
+**Compute type:**
+- `float32` — works on CPU and GPU (required for CPU)
+- `float16` — GPU only, faster (default)
+- `int8` — fastest, slightly lower accuracy
+
+**Speaker count tip:** Specifying `--num-speakers` when you know the exact count improves diarization accuracy by 15–30%.
+
+---
 
 ## Troubleshooting
 
-### Quick Fixes
-
 ```bash
-# ❌ This fails on CPU:
-uv run speech-mine extract audio.wav out.csv --hf-token TOKEN
+# float16 error on CPU → use float32
+uv run speech-mine extract audio.wav out.csv \
+  --hf-token TOKEN \
+  --compute-type float32
 
-# ✅ This works on CPU:
-uv run speech-mine extract audio.wav out.csv --hf-token TOKEN --compute-type float32
-
-# ✅ This works on any system:
-uv run speech-mine extract audio.wav out.csv --hf-token TOKEN --device cpu --compute-type float32 --model base
+# Safest CPU command
+uv run speech-mine extract audio.wav out.csv \
+  --hf-token TOKEN \
+  --device cpu \
+  --compute-type float32 \
+  --model base
 ```
 
-
-## Quick Start Examples
-
-| Use Case | Command | Notes |
-|----------|---------|-------|
-| **Basic extraction (CPU)** | `uv run speech-mine extract audio.wav out.csv --hf-token TOKEN --compute-type float32` | Safe for all systems |
-| **2-person interview** | `uv run speech-mine extract interview.wav out.csv --hf-token TOKEN --num-speakers 2 --compute-type float32` | Exact count for best accuracy |
-| **Meeting (known attendees)** | `uv run speech-mine extract meeting.wav out.csv --hf-token TOKEN --num-speakers 5 --compute-type float32` | Count participants beforehand |
-| **Fast processing** | `uv run speech-mine extract audio.wav out.csv --hf-token TOKEN --model base --compute-type float32` | Trade accuracy for speed |
-| **Format transcript** | `uv run speech-mine format transcript.csv script.txt` | Create readable script |
-| **GPU processing** | `uv run speech-mine extract audio.wav out.csv --hf-token TOKEN --device cuda --compute-type float16` | Faster with GPU |
-
-### Environment Setup
-```bash
-# Set token once (optional)
-export HF_TOKEN="your_huggingface_token"
-
-# Then you can omit --hf-token:
-uv run speech-mine extract audio.wav out.csv --compute-type float32
-```
-
+---
 
 ## License
 
