@@ -116,22 +116,24 @@ class SpeechDiarizationProcessor:
         
         return device
     
+    SUPPORTED_FORMATS = ('.wav', '.mp3', '.ogg', '.flac', '.m4a', '.webm')
+
     def validate_audio_file(self, audio_path: str) -> bool:
         """
-        Validate that the audio file exists and is a .wav file.
-        
+        Validate that the audio file exists and is a supported format.
+
         Args:
             audio_path: Path to the audio file
-            
+
         Returns:
             True if valid, False otherwise
         """
         if not os.path.exists(audio_path):
             logger.error(f"Audio file not found: {audio_path}")
             return False
-        
-        if not audio_path.lower().endswith('.wav'):
-            logger.error(f"Only .wav files are supported, got: {audio_path}")
+
+        if not audio_path.lower().endswith(self.SUPPORTED_FORMATS):
+            logger.error(f"Unsupported format. Supported: {self.SUPPORTED_FORMATS}")
             return False
         
         file_size = os.path.getsize(audio_path)

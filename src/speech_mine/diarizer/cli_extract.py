@@ -34,8 +34,8 @@ Examples:
     )
     
     parser.add_argument(
-        "input_file", 
-        help="Input .wav audio file"
+        "input_file",
+        help="Input audio file (.wav, .mp3, .ogg, .flac, .m4a, .webm)"
     )
     parser.add_argument(
         "output_file", 
@@ -102,8 +102,10 @@ def extract_command(args: argparse.Namespace) -> int:
     setup_logging(args.verbose)
     
     # Validate arguments
-    if not args.input_file.lower().endswith('.wav'):
-        print("❌ Error: Input file must be a .wav file")
+    from .processor import SpeechDiarizationProcessor
+    supported = SpeechDiarizationProcessor.SUPPORTED_FORMATS
+    if not args.input_file.lower().endswith(supported):
+        print(f"❌ Error: Unsupported format. Supported: {supported}")
         return 1
     
     if not args.output_file.lower().endswith('.csv'):
