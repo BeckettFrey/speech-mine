@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "speech-mine"
 version = "0.1.0"
 description = "A powerful tool for extracting and analyzing speech data from audio files with known speaker counts and contents."
-readme = "README.md"
+readme = "README_PYPI.md"
 
 classifiers = [
     "Development Status :: 4 - Beta",
