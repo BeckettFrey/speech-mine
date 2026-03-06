@@ -207,4 +207,4 @@ marimo/_lsp/
 __marimo__/
 
 # macOS files
-.DS_Store
+.DS_Storesite/
