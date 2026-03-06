@@ -4,7 +4,7 @@ The `extract` command produces two output files.
 
 ## CSV (`output.csv`)
 
-Contains interleaved segment-level and word-level rows. See [example](https://github.com/your-org/speech-mine/blob/main/examples/example_extract_output.csv).
+Contains interleaved segment-level and word-level rows. See [example](https://github.com/BeckettFrey/speech-mine/blob/main/examples/example_extract_output.csv).
 
 | Column | Description |
 |--------|-------------|
@@ -22,7 +22,7 @@ Segment rows and their corresponding word rows are interleaved — each segment 
 
 ## Metadata (`output_metadata.json`)
 
-See [example](https://github.com/your-org/speech-mine/blob/main/examples/example_extract_metadata.json).
+See [example](https://github.com/BeckettFrey/speech-mine/blob/main/examples/example_extract_metadata.json).
 
 ```json
 {

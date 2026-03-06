@@ -1,5 +1,7 @@
 # chunk — Audio Chunking
 
+![chunk diagram](diagrams/chunk.svg)
+
 Splits a `.wav` file into smaller segments based on a YAML configuration defining time boundaries. Useful for pre-processing long recordings before running `extract`.
 
 !!! note
@@ -8,7 +10,7 @@ Splits a `.wav` file into smaller segments based on a YAML configuration definin
 ## CLI
 
 ```bash
-uv run speech-mine chunk <audio.wav> <config.yaml> <output_dir/> [options]
+speech-mine chunk <audio.wav> <config.yaml> <output_dir/> [options]
 ```
 
 ### Options
@@ -24,10 +26,10 @@ uv run speech-mine chunk <audio.wav> <config.yaml> <output_dir/> [options]
 
 ```bash
 # Basic chunking
-uv run speech-mine chunk recording.wav config.yaml chunks/
+speech-mine chunk recording.wav config.yaml chunks/
 
 # With fade effects and padding
-uv run speech-mine chunk recording.wav config.yaml chunks/ \
+speech-mine chunk recording.wav config.yaml chunks/ \
   --fade-in 500 \
   --fade-out 500 \
   --padding 100 \
@@ -56,7 +58,7 @@ output_files = chunker.process_audio_file("recording.wav", "config.yaml", "chunk
 
 ## YAML config format
 
-See [examples/example_chunk_config.yaml](https://github.com/your-org/speech-mine/blob/main/examples/example_chunk_config.yaml) for a full example.
+See [examples/example_chunk_config.yaml](https://github.com/BeckettFrey/speech-mine/blob/main/examples/example_chunk_config.yaml) for a full example.
 
 ```yaml
 chunks:

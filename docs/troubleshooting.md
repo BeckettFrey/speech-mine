@@ -9,7 +9,7 @@ Requested float16 compute type, but the target device or backend do not support 
 **Fix:** Add `--compute-type float32`:
 
 ```bash
-uv run speech-mine extract audio.wav out.csv \
+speech-mine extract audio.wav out.csv \
   --hf-token TOKEN \
   --compute-type float32
 ```
@@ -17,7 +17,7 @@ uv run speech-mine extract audio.wav out.csv \
 Safest command for any system:
 
 ```bash
-uv run speech-mine extract audio.wav out.csv \
+speech-mine extract audio.wav out.csv \
   --hf-token TOKEN \
   --device cpu \
   --compute-type float32 \
@@ -40,7 +40,7 @@ Failed to load pyannote pipeline
 If `speech-mine search` returns no results, try lowering the similarity range:
 
 ```bash
-uv run speech-mine search "your query" output.csv --similarity-range 0.5 1.0
+speech-mine search "your query" output.csv --similarity-range 0.5 1.0
 ```
 
 The default range is `0.0 1.0` (all matches), but if no results appear it may be that no windows score above 0.0 — try the query with simpler wording.

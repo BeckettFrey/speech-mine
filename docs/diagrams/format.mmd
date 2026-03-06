@@ -1,0 +1,5 @@
+flowchart LR
+    A[output.csv] --> B[ScriptFormatter]
+    C["output_metadata.json<br/>optional"] --> B
+    D["Speaker Name Map<br/>optional JSON"] --> B
+    B --> E["script.txt<br/>Readable Transcript"]
