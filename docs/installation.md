@@ -2,32 +2,41 @@
 
 ## As a CLI tool
 
-Requires [uv](https://docs.astral.sh/uv/) and ffmpeg.
+Requires ffmpeg on your `PATH`.
 
 ```bash
-# Install uv if you haven't already
-curl -LsSf https://astral.sh/uv/install.sh | sh
+pip install speech-mine
+```
 
-git clone <repository-url>
-cd speech-mine
-uv sync
+Or with [pipx](https://pipx.pypa.io/) to install into an isolated environment:
+
+```bash
+pipx install speech-mine
+```
+
+Or with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv tool install speech-mine
 ```
 
 ## As a library dependency
 
-**uv / pyproject.toml:**
-```toml
-dependencies = [
-    "speech-mine @ git+https://github.com/your-org/speech-mine.git",
-]
-```
-```bash
-uv add git+https://github.com/your-org/speech-mine.git
-```
-
 **pip:**
 ```bash
-pip install git+https://github.com/your-org/speech-mine.git
+pip install speech-mine
+```
+
+**uv:**
+```bash
+uv add speech-mine
+```
+
+**pyproject.toml:**
+```toml
+dependencies = [
+    "speech-mine",
+]
 ```
 
 ## HuggingFace Token

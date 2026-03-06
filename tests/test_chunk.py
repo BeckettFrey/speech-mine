@@ -143,7 +143,7 @@ class TestAudioChunker:
         except ValueError as e:
             assert "'start' and 'end' times are required" in str(e)
 
-    @patch('speech_mine.pickaxe.chunk.AudioSegment')
+    @patch('pydub.AudioSegment')
     def test_process_audio_file_basic(self, mock_audio_segment):
         """Test basic audio file processing"""
         # Mock audio segment

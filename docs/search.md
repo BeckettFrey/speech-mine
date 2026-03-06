@@ -1,11 +1,13 @@
 # search — Fuzzy Transcript Search
 
+![search diagram](diagrams/search.svg)
+
 Searches a transcript CSV for words or phrases using fuzzy matching. Returns ranked matches with timestamps, speaker context, and similarity scores.
 
 ## CLI
 
 ```bash
-uv run speech-mine search <query> <transcript.csv> [metadata.json] [options]
+speech-mine search <query> <transcript.csv> [metadata.json] [options]
 ```
 
 ### Options
@@ -22,13 +24,13 @@ uv run speech-mine search <query> <transcript.csv> [metadata.json] [options]
 
 ```bash
 # Search and print JSON to stdout
-uv run speech-mine search "childhood abuse" output.csv
+speech-mine search "childhood abuse" output.csv
 
 # Formatted colored output
-uv run speech-mine search "childhood abuse" output.csv --pretty
+speech-mine search "childhood abuse" output.csv --pretty
 
 # High-confidence matches, save to file
-uv run speech-mine search "radio career" output.csv output_metadata.json \
+speech-mine search "radio career" output.csv output_metadata.json \
   --similarity-range 0.8 1.0 \
   --top-k 5 \
   --output-type timestamp \

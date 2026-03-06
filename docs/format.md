@@ -1,11 +1,13 @@
 # format — Script Formatting
 
+![format diagram](diagrams/format.svg)
+
 Converts the CSV output from `extract` into a human-readable, movie-style script.
 
 ## CLI
 
 ```bash
-uv run speech-mine format <input.csv> <output.txt> [options]
+speech-mine format <input.csv> <output.txt> [options]
 ```
 
 ### Options
@@ -19,26 +21,26 @@ uv run speech-mine format <input.csv> <output.txt> [options]
 
 ```bash
 # Basic formatting
-uv run speech-mine format output.csv script.txt
+speech-mine format output.csv script.txt
 
 # Generate a speaker names template
-uv run speech-mine format output.csv script.txt --create-template
+speech-mine format output.csv script.txt --create-template
 
 # Format with custom speaker names
-uv run speech-mine format output.csv script.txt --speakers output_speaker_names.json
+speech-mine format output.csv script.txt --speakers output_speaker_names.json
 ```
 
 ### Custom speaker names workflow
 
 ```bash
 # 1. Generate template — creates output_speaker_names.json
-uv run speech-mine format output.csv script.txt --create-template
+speech-mine format output.csv script.txt --create-template
 
 # 2. Edit the template
 # {"SPEAKER_00": "Alice", "SPEAKER_01": "Bob"}
 
 # 3. Format with names applied
-uv run speech-mine format output.csv final_script.txt --speakers output_speaker_names.json
+speech-mine format output.csv final_script.txt --speakers output_speaker_names.json
 ```
 
 ## Library
@@ -64,7 +66,7 @@ formatter = ScriptFormatter(custom_speakers=speakers)
 
 ## Output format
 
-See [examples/example_format_output.txt](https://github.com/your-org/speech-mine/blob/main/examples/example_format_output.txt) for a full sample.
+See [examples/example_format_output.txt](https://github.com/BeckettFrey/speech-mine/blob/main/examples/example_format_output.txt) for a full sample.
 
 ```
 ================================================================================

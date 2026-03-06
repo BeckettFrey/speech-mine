@@ -1,22 +1,20 @@
 site_name: speech-mine
 site_description: Speech diarization and transcript analysis toolkit
-repo_url: https://github.com/your-org/speech-mine
-repo_name: your-org/speech-mine
+repo_url: https://github.com/BeckettFrey/speech-mine
+repo_name: BeckettFrey/speech-mine
 
 theme:
   name: material
-  logo: hero.png
-  favicon: hero.png
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: deep-orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: deep-orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
