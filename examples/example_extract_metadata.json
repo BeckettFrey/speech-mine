@@ -1,0 +1,13 @@
+{
+  "audio_file": "audio_samples/interview_2.ogg",
+  "language": "en",
+  "language_probability": 0.9837450981140137,
+  "duration": 213.0895625,
+  "total_segments": 30,
+  "total_words": 423,
+  "speakers": [
+    "SPEAKER_01",
+    "SPEAKER_00"
+  ],
+  "processing_timestamp": "2026-03-05 22:49:02"
+}

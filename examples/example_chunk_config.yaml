@@ -1,0 +1,26 @@
+# Example configuration for audio chunking
+# This file defines how to split an audio file into chunks
+
+chunks:
+  # Chunk 1: Introduction (0-30 seconds)
+  - start: 0.0
+    end: 30.0
+    name: "intro"
+  
+  # Chunk 2: Main discussion (30-120 seconds)  
+  - start: 30.0
+    end: 120.0
+    name: "main_discussion"
+  
+  # Chunk 3: Q&A section (120-180 seconds)
+  - start: 120.0
+    end: 180.0
+    name: "qna"
+    
+  # Chunk 4: Conclusion (180-210 seconds) - no name specified
+  - start: 180.0
+    end: 210.0
+
+# Output files will be named:
+# 0.intro.wav, 1.main_discussion.wav, 2.qna.wav, 3.wav
+# (Index based on start time order, name is optional)
