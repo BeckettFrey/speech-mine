@@ -1,0 +1,454 @@
+type,speaker,start,end,text,word,word_position,confidence,overlap_duration
+segment,SPEAKER_01,0.18,5.28,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",,,0.6951584748949821,5.1
+word,SPEAKER_01,0.18,0.52,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",that,0,0.051444996148347855,5.1
+word,SPEAKER_01,0.52,0.76,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",there's,1,0.86591437458992,5.1
+word,SPEAKER_01,0.76,0.94,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",not,2,0.9471068978309631,5.1
+word,SPEAKER_01,0.94,1.14,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",a,3,0.989113450050354,5.1
+word,SPEAKER_01,1.14,1.44,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",great,4,0.9939321875572205,5.1
+word,SPEAKER_01,1.44,1.9,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",deal,5,0.992312490940094,5.1
+word,SPEAKER_01,1.9,2.82,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",of,6,0.9802071452140808,5.1
+word,SPEAKER_01,2.82,3.24,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",possibility,7,0.9448400139808655,5.1
+word,SPEAKER_01,3.24,3.5,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",of,8,0.9887773394584656,5.1
+word,SPEAKER_01,3.5,3.68,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",mid,9,0.8205316066741943,5.1
+word,SPEAKER_01,3.68,3.82,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",-air,10,0.7176765501499176,5.1
+word,SPEAKER_01,3.82,4.28,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",crashes.,11,0.9632184505462646,5.1
+word,SPEAKER_01,4.44,4.64,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",Of,12,0.9661396741867065,5.1
+word,SPEAKER_01,4.64,4.64,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.","course,",13,0.9990648627281189,5.1
+word,SPEAKER_01,4.74,4.88,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",it,14,0.9899473786354065,5.1
+word,SPEAKER_01,4.88,5.28,"that there's not a great deal of possibility of mid-air crashes. Of course, it exists.",exists.,15,0.9766057729721069,5.1
+segment,SPEAKER_01,5.98,8.52,"But the possibility is fairly remote, isn't that?",,,0.6951584748949821,2.539
+word,SPEAKER_01,5.98,5.98,"But the possibility is fairly remote, isn't that?",But,0,0.5756126046180725,2.539
+word,SPEAKER_01,5.98,6.34,"But the possibility is fairly remote, isn't that?",the,1,0.942385733127594,2.539
+word,SPEAKER_01,6.34,6.78,"But the possibility is fairly remote, isn't that?",possibility,2,0.495411217212677,2.539
+word,SPEAKER_01,6.78,7.28,"But the possibility is fairly remote, isn't that?",is,3,0.8746030330657959,2.539
+word,SPEAKER_01,7.28,7.54,"But the possibility is fairly remote, isn't that?",fairly,4,0.9427781701087952,2.539
+word,SPEAKER_01,7.54,7.96,"But the possibility is fairly remote, isn't that?","remote,",5,0.8705993890762329,2.539
+word,SPEAKER_01,7.96,8.38,"But the possibility is fairly remote, isn't that?",isn't,6,0.9833000600337982,2.539
+word,SPEAKER_01,8.38,8.52,"But the possibility is fairly remote, isn't that?",that?,7,0.5510536432266235,2.539
+segment,SPEAKER_00,10.08,16.94,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",,,0.6951584748949821,3.46
+word,SPEAKER_00,10.08,10.62,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.","Well,",0,0.47503462433815,3.46
+word,SPEAKER_00,10.62,11.16,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",I,1,0.9785373210906982,3.46
+word,SPEAKER_00,11.16,12.0,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",started,2,0.9182285070419312,3.46
+word,SPEAKER_00,12.0,12.32,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",speech,3,0.9550446271896362,3.46
+word,SPEAKER_00,12.32,12.56,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",one,4,0.8320765495300293,3.46
+word,SPEAKER_00,12.56,12.86,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.","time,",5,0.7929715514183044,3.46
+word,SPEAKER_00,12.88,13.16,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",said,6,0.8350270986557007,3.46
+word,SPEAKER_00,13.16,13.26,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",that,7,0.8159860372543335,3.46
+word,SPEAKER_00,13.26,13.42,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",we,8,0.7432351112365723,3.46
+word,SPEAKER_00,13.42,14.04,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",had,9,0.5055056810379028,3.46
+word,SPEAKER_00,14.04,14.28,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",the,10,0.767898678779602,3.46
+word,SPEAKER_00,14.28,14.86,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",potential,11,0.9970633387565613,3.46
+word,SPEAKER_00,14.86,15.54,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",or,12,0.5966095328330994,3.46
+word,SPEAKER_00,15.54,15.72,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",the,13,0.9754495024681091,3.46
+word,SPEAKER_00,15.72,16.0,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",problem,14,0.7467517256736755,3.46
+word,SPEAKER_00,16.0,16.3,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",of,15,0.9870765805244446,3.46
+word,SPEAKER_00,16.3,16.42,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",mid,16,0.9875363707542419,3.46
+word,SPEAKER_00,16.42,16.56,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",-air,17,0.9818979501724243,3.46
+word,SPEAKER_00,16.56,16.94,"Well, I started speech one time, said that we had the potential or the problem of mid-air collisions.",collisions.,18,0.8690163493156433,3.46
+segment,SPEAKER_00,17.12,19.88,"There was since Wilbert turned or Wilbert said, let's build another one.",,,0.6951584748949821,2.76
+word,SPEAKER_00,17.12,17.2,"There was since Wilbert turned or Wilbert said, let's build another one.",There,0,0.8770790696144104,2.76
+word,SPEAKER_00,17.2,17.34,"There was since Wilbert turned or Wilbert said, let's build another one.",was,1,0.7303646206855774,2.76
+word,SPEAKER_00,17.34,17.54,"There was since Wilbert turned or Wilbert said, let's build another one.",since,2,0.2958165109157562,2.76
+word,SPEAKER_00,17.54,17.92,"There was since Wilbert turned or Wilbert said, let's build another one.",Wilbert,3,0.6642539799213409,2.76
+word,SPEAKER_00,17.92,18.18,"There was since Wilbert turned or Wilbert said, let's build another one.",turned,4,0.4928821623325348,2.76
+word,SPEAKER_00,18.18,18.48,"There was since Wilbert turned or Wilbert said, let's build another one.",or,5,0.1745191365480423,2.76
+word,SPEAKER_00,18.48,18.74,"There was since Wilbert turned or Wilbert said, let's build another one.",Wilbert,6,0.8316157162189484,2.76
+word,SPEAKER_00,18.74,18.92,"There was since Wilbert turned or Wilbert said, let's build another one.","said,",7,0.9691401720046997,2.76
+word,SPEAKER_00,19.1,19.16,"There was since Wilbert turned or Wilbert said, let's build another one.",let's,8,0.579367384314537,2.76
+word,SPEAKER_00,19.16,19.36,"There was since Wilbert turned or Wilbert said, let's build another one.",build,9,0.9832544922828674,2.76
+word,SPEAKER_00,19.36,19.66,"There was since Wilbert turned or Wilbert said, let's build another one.",another,10,0.9298994541168213,2.76
+word,SPEAKER_00,19.66,19.88,"There was since Wilbert turned or Wilbert said, let's build another one.",one.,11,0.5428832173347473,2.76
+segment,SPEAKER_00,20.78,32.48,"Well, I think that right now being discussed throughout the entire United States,",,,0.8615588888411048,2.717
+word,SPEAKER_00,20.78,21.66,"Well, I think that right now being discussed throughout the entire United States,","Well,",0,0.006779094692319632,2.717
+word,SPEAKER_00,22.82,23.28,"Well, I think that right now being discussed throughout the entire United States,",I,1,0.9029477834701538,2.717
+word,SPEAKER_00,23.28,23.68,"Well, I think that right now being discussed throughout the entire United States,",think,2,0.9602168202400208,2.717
+word,SPEAKER_00,23.68,24.66,"Well, I think that right now being discussed throughout the entire United States,",that,3,0.8806014060974121,2.717
+word,SPEAKER_00,24.66,24.92,"Well, I think that right now being discussed throughout the entire United States,",right,4,0.9075258374214172,2.717
+word,SPEAKER_00,24.92,25.52,"Well, I think that right now being discussed throughout the entire United States,",now,5,0.999457061290741,2.717
+word,SPEAKER_00,29.26,29.74,"Well, I think that right now being discussed throughout the entire United States,",being,6,0.7970123887062073,2.717
+word,SPEAKER_00,29.74,30.24,"Well, I think that right now being discussed throughout the entire United States,",discussed,7,0.9830543398857117,2.717
+word,SPEAKER_00,30.24,30.9,"Well, I think that right now being discussed throughout the entire United States,",throughout,8,0.9971055388450623,2.717
+word,SPEAKER_00,30.9,31.16,"Well, I think that right now being discussed throughout the entire United States,",the,9,0.9957976341247559,2.717
+word,SPEAKER_00,31.16,31.48,"Well, I think that right now being discussed throughout the entire United States,",entire,10,0.8413203954696655,2.717
+word,SPEAKER_00,31.48,31.9,"Well, I think that right now being discussed throughout the entire United States,",United,11,0.9905049204826355,2.717
+word,SPEAKER_00,31.9,32.48,"Well, I think that right now being discussed throughout the entire United States,","States,",12,0.9978994131088257,2.717
+segment,SPEAKER_00,33.58,45.82,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",,,0.8615588888411048,5.323
+word,SPEAKER_00,33.58,33.58,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",I,0,0.9964807629585266,5.323
+word,SPEAKER_00,33.58,33.9,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",think,1,0.9952390193939209,5.323
+word,SPEAKER_00,33.9,34.08,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",that,2,0.9910401701927185,5.323
+word,SPEAKER_00,34.08,34.18,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",it,3,0.9938461184501648,5.323
+word,SPEAKER_00,34.18,34.46,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",can't,4,0.992111325263977,5.323
+word,SPEAKER_00,34.46,34.74,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",help,5,0.9929392337799072,5.323
+word,SPEAKER_00,34.74,35.56,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",but,6,0.7937629818916321,5.323
+word,SPEAKER_00,35.56,35.72,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",the,7,0.6200062036514282,5.323
+word,SPEAKER_00,35.72,36.18,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",problem,8,0.9467858672142029,5.323
+word,SPEAKER_00,36.18,36.58,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",can't,9,0.9850623905658722,5.323
+word,SPEAKER_00,36.58,36.8,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",help,10,0.9931443929672241,5.323
+word,SPEAKER_00,36.8,36.98,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",but,11,0.9804792404174805,5.323
+word,SPEAKER_00,36.98,37.4,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",increase,12,0.9334917664527893,5.323
+word,SPEAKER_00,37.4,37.86,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",because,13,0.955542802810669,5.323
+word,SPEAKER_00,37.86,38.76,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",our,14,0.9779115319252014,5.323
+word,SPEAKER_00,38.76,38.94,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",civil,15,0.6131454110145569,5.323
+word,SPEAKER_00,38.94,39.46,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",aviation,16,0.9727209210395813,5.323
+word,SPEAKER_00,39.46,40.04,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",fleet,17,0.9462870955467224,5.323
+word,SPEAKER_00,40.04,40.68,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",is,18,0.9591681957244873,5.323
+word,SPEAKER_00,40.68,41.12,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",projected,19,0.9848147630691528,5.323
+word,SPEAKER_00,41.12,41.62,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",to,20,0.9446113705635071,5.323
+word,SPEAKER_00,41.62,42.06,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",increase,21,0.9712777137756348,5.323
+word,SPEAKER_00,42.06,42.4,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",to,22,0.9765093922615051,5.323
+word,SPEAKER_00,42.4,42.86,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",approximately,23,0.9955782294273376,5.323
+word,SPEAKER_00,42.86,43.7,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",260,24,0.8957847952842712,5.323
+word,SPEAKER_00,43.7,44.3,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",",000",25,0.9851593375205994,5.323
+word,SPEAKER_00,44.3,44.64,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",airplanes,26,0.9603521823883057,5.323
+word,SPEAKER_00,44.64,44.98,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",in,27,0.7066165208816528,5.323
+word,SPEAKER_00,44.98,45.1,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",the,28,0.9959957599639893,5.323
+word,SPEAKER_00,45.1,45.16,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",next,29,0.9889146685600281,5.323
+word,SPEAKER_00,45.16,45.38,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",10,30,0.8413284420967102,5.323
+word,SPEAKER_00,45.38,45.82,"I think that it can't help but the problem can't help but increase because our civil aviation fleet is projected to increase to approximately 260,000 airplanes in the next 10 years.",years.,31,0.999481737613678,5.323
+segment,SPEAKER_00,45.82,48.56,"Now, that's doubling the fleet that we have today.",,,0.8309776253891568,2.548
+word,SPEAKER_00,45.82,46.36,"Now, that's doubling the fleet that we have today.","Now,",0,0.30163392424583435,2.548
+word,SPEAKER_00,46.52,46.72,"Now, that's doubling the fleet that we have today.",that's,1,0.9437827467918396,2.548
+word,SPEAKER_00,46.72,47.04,"Now, that's doubling the fleet that we have today.",doubling,2,0.9828912019729614,2.548
+word,SPEAKER_00,47.04,47.34,"Now, that's doubling the fleet that we have today.",the,3,0.8920202255249023,2.548
+word,SPEAKER_00,47.34,47.56,"Now, that's doubling the fleet that we have today.",fleet,4,0.5399069786071777,2.548
+word,SPEAKER_00,47.56,47.76,"Now, that's doubling the fleet that we have today.",that,5,0.9140187501907349,2.548
+word,SPEAKER_00,47.76,47.88,"Now, that's doubling the fleet that we have today.",we,6,0.9983319640159607,2.548
+word,SPEAKER_00,47.88,48.14,"Now, that's doubling the fleet that we have today.",have,7,0.9969267249107361,2.548
+word,SPEAKER_00,48.14,48.56,"Now, that's doubling the fleet that we have today.",today.,8,0.9952959418296814,2.548
+segment,SPEAKER_00,49.6,56.56,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",,,0.8309776253891568,6.355
+word,SPEAKER_00,49.6,49.82,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",Right,0,0.9810665845870972,6.355
+word,SPEAKER_00,49.82,50.02,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.","now,",1,0.9977086782455444,6.355
+word,SPEAKER_00,50.14,50.14,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",we,2,0.9937717318534851,6.355
+word,SPEAKER_00,50.14,50.56,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",have,3,0.996623158454895,6.355
+word,SPEAKER_00,50.56,51.38,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",approximately,4,0.5434243083000183,6.355
+word,SPEAKER_00,51.38,52.54,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",120,5,0.9294323921203613,6.355
+word,SPEAKER_00,52.54,53.28,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",to,6,0.5742759704589844,6.355
+word,SPEAKER_00,53.28,53.48,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",130,7,0.9686282277107239,6.355
+word,SPEAKER_00,53.48,54.04,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",",000",8,0.9790692925453186,6.355
+word,SPEAKER_00,54.04,54.46,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",airplanes,9,0.8621470332145691,6.355
+word,SPEAKER_00,54.46,54.82,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",and,10,0.5911923050880432,6.355
+word,SPEAKER_00,54.82,55.04,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",civil,11,0.18326795101165771,6.355
+word,SPEAKER_00,55.04,55.46,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",aviation,12,0.9824895858764648,6.355
+word,SPEAKER_00,55.46,56.56,"Right now, we have approximately 120 to 130,000 airplanes and civil aviation fleet.",fleet.,13,0.9934195876121521,6.355
+segment,SPEAKER_00,56.88,64.06,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",,,0.8309776253891568,7.175
+word,SPEAKER_00,56.88,57.18,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",And,0,0.9512798190116882,7.175
+word,SPEAKER_00,57.18,57.3,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",out,1,0.9918169379234314,7.175
+word,SPEAKER_00,57.3,57.4,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",of,2,0.9982353448867798,7.175
+word,SPEAKER_00,57.4,57.54,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",this,3,0.974481999874115,7.175
+word,SPEAKER_00,57.54,58.06,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",130,4,0.9485906362533569,7.175
+word,SPEAKER_00,58.06,58.56,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",",000",5,0.9966618716716766,7.175
+word,SPEAKER_00,58.56,59.2,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.","aircraft,",6,0.9973725080490112,7.175
+word,SPEAKER_00,59.88,60.44,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",approximately,7,0.38897469639778137,7.175
+word,SPEAKER_00,60.44,61.2,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",27,8,0.9821391701698303,7.175
+word,SPEAKER_00,61.2,61.62,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",to,9,0.8877542018890381,7.175
+word,SPEAKER_00,61.62,62.38,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",2800,10,0.8833960592746735,7.175
+word,SPEAKER_00,62.38,62.56,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",are,11,0.9527226090431213,7.175
+word,SPEAKER_00,62.56,62.86,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",involved,12,0.9736947417259216,7.175
+word,SPEAKER_00,62.86,63.14,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",in,13,0.9881568551063538,7.175
+word,SPEAKER_00,63.14,63.48,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",commercial,14,0.9911313652992249,7.175
+word,SPEAKER_00,63.48,64.06,"And out of this 130,000 aircraft, approximately 27 to 2800 are involved in commercial aviation.",aviation.,15,0.9997106194496155,7.175
+segment,SPEAKER_00,65.36,74.1,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",,,0.8309776253891568,5.455
+word,SPEAKER_00,65.36,65.78,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.","Now,",0,0.961641252040863,5.455
+word,SPEAKER_00,65.78,65.88,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",by,1,0.9931942224502563,5.455
+word,SPEAKER_00,65.88,66.08,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",the,2,0.9986855387687683,5.455
+word,SPEAKER_00,66.08,66.28,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",year,3,0.9944965243339539,5.455
+word,SPEAKER_00,66.28,67.32,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.","1980,",4,0.9874029159545898,5.455
+word,SPEAKER_00,69.04,69.24,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",the,5,0.6956525444984436,5.455
+word,SPEAKER_00,69.24,69.38,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",expect,6,0.4496236741542816,5.455
+word,SPEAKER_00,69.38,69.76,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",civil,7,0.8829566240310669,5.455
+word,SPEAKER_00,69.76,70.22,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",aviation,8,0.9978808760643005,5.455
+word,SPEAKER_00,70.22,70.58,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",fleet,9,0.5208460092544556,5.455
+word,SPEAKER_00,70.58,70.8,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",to,10,0.9659438729286194,5.455
+word,SPEAKER_00,70.8,71.2,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",increase,11,0.9835471510887146,5.455
+word,SPEAKER_00,71.2,71.5,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",to,12,0.9916852712631226,5.455
+word,SPEAKER_00,71.5,72.04,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",approximately,13,0.9959487915039062,5.455
+word,SPEAKER_00,72.04,72.9,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",260,14,0.9468287229537964,5.455
+word,SPEAKER_00,72.9,73.5,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",",000",15,0.998103141784668,5.455
+word,SPEAKER_00,73.5,74.1,"Now, by the year 1980, the expect civil aviation fleet to increase to approximately 260,000 airplanes.",airplanes.,16,0.9396812915802002,5.455
+segment,SPEAKER_00,74.1,79.66,"But the commercial transport fleet will only increase to about 3,100 airplanes.",,,0.7608053460279639,5.008
+word,SPEAKER_00,74.1,74.9,"But the commercial transport fleet will only increase to about 3,100 airplanes.",But,0,0.08458621054887772,5.008
+word,SPEAKER_00,74.9,75.34,"But the commercial transport fleet will only increase to about 3,100 airplanes.",the,1,0.6080518364906311,5.008
+word,SPEAKER_00,75.34,76.12,"But the commercial transport fleet will only increase to about 3,100 airplanes.",commercial,2,0.625517725944519,5.008
+word,SPEAKER_00,76.12,76.86,"But the commercial transport fleet will only increase to about 3,100 airplanes.",transport,3,0.980301558971405,5.008
+word,SPEAKER_00,76.86,77.18,"But the commercial transport fleet will only increase to about 3,100 airplanes.",fleet,4,0.9721487164497375,5.008
+word,SPEAKER_00,77.18,77.38,"But the commercial transport fleet will only increase to about 3,100 airplanes.",will,5,0.9641979336738586,5.008
+word,SPEAKER_00,77.38,77.64,"But the commercial transport fleet will only increase to about 3,100 airplanes.",only,6,0.99700528383255,5.008
+word,SPEAKER_00,77.64,77.96,"But the commercial transport fleet will only increase to about 3,100 airplanes.",increase,7,0.9585361480712891,5.008
+word,SPEAKER_00,77.96,78.18,"But the commercial transport fleet will only increase to about 3,100 airplanes.",to,8,0.9795627593994141,5.008
+word,SPEAKER_00,78.18,78.42,"But the commercial transport fleet will only increase to about 3,100 airplanes.",about,9,0.9887439012527466,5.008
+word,SPEAKER_00,78.42,78.6,"But the commercial transport fleet will only increase to about 3,100 airplanes.",3,10,0.7651612758636475,5.008
+word,SPEAKER_00,78.6,79.12,"But the commercial transport fleet will only increase to about 3,100 airplanes.",",100",11,0.7833652496337891,5.008
+word,SPEAKER_00,79.12,79.66,"But the commercial transport fleet will only increase to about 3,100 airplanes.",airplanes.,12,0.2640572190284729,5.008
+segment,SPEAKER_01,80.82,85.9,"So the size of those, they loads that they can carry will be much greater, will they not?",,,0.7608053460279639,3.687
+word,SPEAKER_01,80.82,80.92,"So the size of those, they loads that they can carry will be much greater, will they not?",So,0,0.4646446406841278,3.687
+word,SPEAKER_01,80.92,81.08,"So the size of those, they loads that they can carry will be much greater, will they not?",the,1,0.8706309199333191,3.687
+word,SPEAKER_01,81.08,81.46,"So the size of those, they loads that they can carry will be much greater, will they not?",size,2,0.994629442691803,3.687
+word,SPEAKER_01,81.46,81.68,"So the size of those, they loads that they can carry will be much greater, will they not?",of,3,0.9839631915092468,3.687
+word,SPEAKER_01,81.68,82.4,"So the size of those, they loads that they can carry will be much greater, will they not?","those,",4,0.9879030585289001,3.687
+word,SPEAKER_01,82.64,82.86,"So the size of those, they loads that they can carry will be much greater, will they not?",they,5,0.8414523005485535,3.687
+word,SPEAKER_01,82.86,83.16,"So the size of those, they loads that they can carry will be much greater, will they not?",loads,6,0.3696092963218689,3.687
+word,SPEAKER_01,83.16,83.34,"So the size of those, they loads that they can carry will be much greater, will they not?",that,7,0.8205434083938599,3.687
+word,SPEAKER_01,83.34,83.48,"So the size of those, they loads that they can carry will be much greater, will they not?",they,8,0.9960209727287292,3.687
+word,SPEAKER_01,83.48,83.68,"So the size of those, they loads that they can carry will be much greater, will they not?",can,9,0.9654580354690552,3.687
+word,SPEAKER_01,83.68,83.96,"So the size of those, they loads that they can carry will be much greater, will they not?",carry,10,0.9973148703575134,3.687
+word,SPEAKER_01,83.96,84.22,"So the size of those, they loads that they can carry will be much greater, will they not?",will,11,0.8989955186843872,3.687
+word,SPEAKER_01,84.22,84.72,"So the size of those, they loads that they can carry will be much greater, will they not?",be,12,0.9939221143722534,3.687
+word,SPEAKER_01,84.72,85.08,"So the size of those, they loads that they can carry will be much greater, will they not?",much,13,0.9863155484199524,3.687
+word,SPEAKER_01,85.08,85.36,"So the size of those, they loads that they can carry will be much greater, will they not?","greater,",14,0.9973317384719849,3.687
+word,SPEAKER_01,85.48,85.54,"So the size of those, they loads that they can carry will be much greater, will they not?",will,15,0.6404895186424255,3.687
+word,SPEAKER_01,85.54,85.66,"So the size of those, they loads that they can carry will be much greater, will they not?",they,16,0.9111281037330627,3.687
+word,SPEAKER_01,85.66,85.9,"So the size of those, they loads that they can carry will be much greater, will they not?",not?,17,0.9798454642295837,3.687
+segment,SPEAKER_00,86.1,88.56,"Yes, the 2747.",,,0.7608053460279639,1.454
+word,SPEAKER_00,86.1,86.42,"Yes, the 2747.","Yes,",0,0.7940376400947571,1.454
+word,SPEAKER_00,87.4,87.48,"Yes, the 2747.",the,1,0.9559016823768616,1.454
+word,SPEAKER_00,87.48,88.56,"Yes, the 2747.",2747.,2,0.5507977604866028,1.454
+segment,SPEAKER_00,90.1,92.22,"Well, it's just enjoy.",,,0.7608053460279639,2.12
+word,SPEAKER_00,90.1,90.66,"Well, it's just enjoy.","Well,",0,0.745337188243866,2.12
+word,SPEAKER_00,90.66,91.22,"Well, it's just enjoy.",it's,1,0.8447883725166321,2.12
+word,SPEAKER_00,91.22,91.38,"Well, it's just enjoy.",just,2,0.8239725232124329,2.12
+word,SPEAKER_00,91.38,92.22,"Well, it's just enjoy.",enjoy.,3,0.24426038563251495,2.12
+segment,SPEAKER_00,92.44,99.82,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",,,0.7608053460279639,7.38
+word,SPEAKER_00,92.44,92.6,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",It's,0,0.9044457376003265,7.38
+word,SPEAKER_00,92.6,92.78,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",made,1,0.7256579995155334,7.38
+word,SPEAKER_00,92.78,93.12,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",in,2,0.6383464932441711,7.38
+word,SPEAKER_00,93.12,93.28,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",flight,3,0.6787188649177551,7.38
+word,SPEAKER_00,93.28,93.84,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",here,4,0.9842644333839417,7.38
+word,SPEAKER_00,93.84,94.22,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",about,5,0.8350196480751038,7.38
+word,SPEAKER_00,94.22,94.46,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",two,6,0.7058076858520508,7.38
+word,SPEAKER_00,94.46,94.68,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",months,7,0.988148033618927,7.38
+word,SPEAKER_00,94.68,94.94,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.","ago,",8,0.9232242703437805,7.38
+word,SPEAKER_00,95.22,95.22,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",and,9,0.7423562407493591,7.38
+word,SPEAKER_00,95.22,95.38,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",once,10,0.3038952350616455,7.38
+word,SPEAKER_00,95.38,95.52,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",you,11,0.7497127056121826,7.38
+word,SPEAKER_00,95.52,95.7,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",had,12,0.48467278480529785,7.38
+word,SPEAKER_00,95.7,95.84,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",a,13,0.8048935532569885,7.38
+word,SPEAKER_00,95.84,96.14,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.","Washington,",14,0.5698870420455933,7.38
+word,SPEAKER_00,96.8,97.14,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",it's,15,0.7332937121391296,7.38
+word,SPEAKER_00,97.14,97.34,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",capable,16,0.8432360291481018,7.38
+word,SPEAKER_00,97.34,97.7,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",of,17,0.9670373201370239,7.38
+word,SPEAKER_00,97.7,98.02,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",carrying,18,0.9445720314979553,7.38
+word,SPEAKER_00,98.02,98.5,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",about,19,0.9826237559318542,7.38
+word,SPEAKER_00,98.5,99.2,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",500,20,0.9443055391311646,7.38
+word,SPEAKER_00,99.2,99.82,"It's made in flight here about two months ago, and once you had a Washington, it's capable of carrying about 500 passengers.",passengers.,21,0.9746387004852295,7.38
+segment,SPEAKER_01,100.48,107.98,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",,,0.7376633924079896,7.205
+word,SPEAKER_01,100.48,101.08,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",In,0,0.10011012107133865,7.205
+word,SPEAKER_01,101.08,101.3,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",your,1,0.9577697515487671,7.205
+word,SPEAKER_01,101.3,101.6,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?","job,",2,0.8045685887336731,7.205
+word,SPEAKER_01,102.0,102.0,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",do,3,0.28423136472702026,7.205
+word,SPEAKER_01,102.0,102.0,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",you,4,0.9571268558502197,7.205
+word,SPEAKER_01,102.0,102.74,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",go,5,0.907989501953125,7.205
+word,SPEAKER_01,102.74,103.02,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",to,6,0.3048899173736572,7.205
+word,SPEAKER_01,103.02,103.36,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",personally,7,0.5276318788528442,7.205
+word,SPEAKER_01,103.36,103.6,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",go,8,0.971155047416687,7.205
+word,SPEAKER_01,103.6,103.76,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",out,9,0.954950749874115,7.205
+word,SPEAKER_01,103.76,103.94,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",on,10,0.968766450881958,7.205
+word,SPEAKER_01,103.94,104.06,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",the,11,0.9686034917831421,7.205
+word,SPEAKER_01,104.06,104.24,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",scene,12,0.45257821679115295,7.205
+word,SPEAKER_01,104.24,104.46,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",of,13,0.956109344959259,7.205
+word,SPEAKER_01,104.46,104.78,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",aircraft,14,0.9847801923751831,7.205
+word,SPEAKER_01,104.78,105.3,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",accidents,15,0.9835149049758911,7.205
+word,SPEAKER_01,105.3,105.58,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",for,16,0.8256680965423584,7.205
+word,SPEAKER_01,105.58,106.04,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",investigation,17,0.9437165856361389,7.205
+word,SPEAKER_01,106.04,106.78,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",or,18,0.7453519701957703,7.205
+word,SPEAKER_01,106.78,107.0,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",use,19,0.3951195478439331,7.205
+word,SPEAKER_01,107.0,107.24,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",the,20,0.4496912956237793,7.205
+word,SPEAKER_01,107.24,107.68,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",team's,21,0.7810267508029938,7.205
+word,SPEAKER_01,107.68,107.98,"In your job, do you go to personally go out on the scene of aircraft accidents for investigation or use the team's order?",order?,22,0.4842786490917206,7.205
+segment,SPEAKER_01,108.38,110.86,Is that at all in the area of your position?,,,0.7376633924079896,2.48
+word,SPEAKER_01,108.38,108.38,Is that at all in the area of your position?,Is,0,0.8851025104522705,2.48
+word,SPEAKER_01,108.38,108.68,Is that at all in the area of your position?,that,1,0.9329872727394104,2.48
+word,SPEAKER_01,108.68,108.82,Is that at all in the area of your position?,at,2,0.9073150753974915,2.48
+word,SPEAKER_01,108.82,108.98,Is that at all in the area of your position?,all,3,0.9891707301139832,2.48
+word,SPEAKER_01,108.98,109.26,Is that at all in the area of your position?,in,4,0.8907026052474976,2.48
+word,SPEAKER_01,109.26,109.56,Is that at all in the area of your position?,the,5,0.5819272398948669,2.48
+word,SPEAKER_01,109.56,110.04,Is that at all in the area of your position?,area,6,0.9728404879570007,2.48
+word,SPEAKER_01,110.04,110.3,Is that at all in the area of your position?,of,7,0.9933172464370728,2.48
+word,SPEAKER_01,110.3,110.5,Is that at all in the area of your position?,your,8,0.9083693027496338,2.48
+word,SPEAKER_01,110.5,110.86,Is that at all in the area of your position?,position?,9,0.953222393989563,2.48
+segment,SPEAKER_00,112.38,116.26,I have not personally investigated an accident for several years.,,,0.7376633924079896,3.88
+word,SPEAKER_00,112.38,112.86,I have not personally investigated an accident for several years.,I,0,0.6725504398345947,3.88
+word,SPEAKER_00,112.86,113.2,I have not personally investigated an accident for several years.,have,1,0.9222397804260254,3.88
+word,SPEAKER_00,113.2,113.56,I have not personally investigated an accident for several years.,not,2,0.8082777261734009,3.88
+word,SPEAKER_00,113.56,113.96,I have not personally investigated an accident for several years.,personally,3,0.9953528642654419,3.88
+word,SPEAKER_00,113.96,114.54,I have not personally investigated an accident for several years.,investigated,4,0.9476659297943115,3.88
+word,SPEAKER_00,114.54,114.92,I have not personally investigated an accident for several years.,an,5,0.10937710851430893,3.88
+word,SPEAKER_00,114.92,115.18,I have not personally investigated an accident for several years.,accident,6,0.8517192006111145,3.88
+word,SPEAKER_00,115.18,115.48,I have not personally investigated an accident for several years.,for,7,0.44933801889419556,3.88
+word,SPEAKER_00,115.48,115.84,I have not personally investigated an accident for several years.,several,8,0.9975300431251526,3.88
+word,SPEAKER_00,115.84,116.26,I have not personally investigated an accident for several years.,years.,9,0.9989346861839294,3.88
+segment,SPEAKER_00,116.52,121.6,I started out with the board as a field investigator working out the Chicago office.,,,0.7376633924079896,2.853
+word,SPEAKER_00,116.52,116.52,I started out with the board as a field investigator working out the Chicago office.,I,0,0.9916169047355652,2.853
+word,SPEAKER_00,116.52,116.8,I started out with the board as a field investigator working out the Chicago office.,started,1,0.9698386788368225,2.853
+word,SPEAKER_00,116.8,117.1,I started out with the board as a field investigator working out the Chicago office.,out,2,0.627564549446106,2.853
+word,SPEAKER_00,117.1,117.26,I started out with the board as a field investigator working out the Chicago office.,with,3,0.8571717739105225,2.853
+word,SPEAKER_00,117.26,117.44,I started out with the board as a field investigator working out the Chicago office.,the,4,0.9271508455276489,2.853
+word,SPEAKER_00,117.44,117.58,I started out with the board as a field investigator working out the Chicago office.,board,5,0.9341269731521606,2.853
+word,SPEAKER_00,117.58,117.96,I started out with the board as a field investigator working out the Chicago office.,as,6,0.7234939932823181,2.853
+word,SPEAKER_00,117.96,119.02,I started out with the board as a field investigator working out the Chicago office.,a,7,0.8061483502388,2.853
+word,SPEAKER_00,119.02,119.24,I started out with the board as a field investigator working out the Chicago office.,field,8,0.6755059361457825,2.853
+word,SPEAKER_00,119.24,119.8,I started out with the board as a field investigator working out the Chicago office.,investigator,9,0.4882829189300537,2.853
+word,SPEAKER_00,119.8,120.24,I started out with the board as a field investigator working out the Chicago office.,working,10,0.9445497989654541,2.853
+word,SPEAKER_00,120.24,120.44,I started out with the board as a field investigator working out the Chicago office.,out,11,0.939845085144043,2.853
+word,SPEAKER_00,120.44,120.56,I started out with the board as a field investigator working out the Chicago office.,the,12,0.6380733251571655,2.853
+word,SPEAKER_00,120.56,120.88,I started out with the board as a field investigator working out the Chicago office.,Chicago,13,0.5947192907333374,2.853
+word,SPEAKER_00,120.88,121.6,I started out with the board as a field investigator working out the Chicago office.,office.,14,0.8554376363754272,2.853
+segment,SPEAKER_00,122.31,131.52,But I was going to call the air carrier accident or catastrophic accident involving passengers.,,,0.645109700606616,4.336
+word,SPEAKER_00,122.31,122.76,But I was going to call the air carrier accident or catastrophic accident involving passengers.,But,0,0.01089430134743452,4.336
+word,SPEAKER_00,122.76,124.14,But I was going to call the air carrier accident or catastrophic accident involving passengers.,I,1,0.08794526755809784,4.336
+word,SPEAKER_00,124.14,124.56,But I was going to call the air carrier accident or catastrophic accident involving passengers.,was,2,0.20623426139354706,4.336
+word,SPEAKER_00,124.56,125.02,But I was going to call the air carrier accident or catastrophic accident involving passengers.,going,3,0.5311634540557861,4.336
+word,SPEAKER_00,125.02,125.48,But I was going to call the air carrier accident or catastrophic accident involving passengers.,to,4,0.4399399757385254,4.336
+word,SPEAKER_00,125.48,125.5,But I was going to call the air carrier accident or catastrophic accident involving passengers.,call,5,0.8085516095161438,4.336
+word,SPEAKER_00,125.5,127.36,But I was going to call the air carrier accident or catastrophic accident involving passengers.,the,6,0.7937759160995483,4.336
+word,SPEAKER_00,127.36,127.6,But I was going to call the air carrier accident or catastrophic accident involving passengers.,air,7,0.36112144589424133,4.336
+word,SPEAKER_00,127.6,128.0,But I was going to call the air carrier accident or catastrophic accident involving passengers.,carrier,8,0.8848418593406677,4.336
+word,SPEAKER_00,128.0,129.12,But I was going to call the air carrier accident or catastrophic accident involving passengers.,accident,9,0.2763988673686981,4.336
+word,SPEAKER_00,129.12,129.14,But I was going to call the air carrier accident or catastrophic accident involving passengers.,or,10,0.18278361856937408,4.336
+word,SPEAKER_00,129.14,129.86,But I was going to call the air carrier accident or catastrophic accident involving passengers.,catastrophic,11,0.8814754486083984,4.336
+word,SPEAKER_00,129.86,130.36,But I was going to call the air carrier accident or catastrophic accident involving passengers.,accident,12,0.9877959489822388,4.336
+word,SPEAKER_00,130.36,130.88,But I was going to call the air carrier accident or catastrophic accident involving passengers.,involving,13,0.39228737354278564,4.336
+word,SPEAKER_00,130.88,131.52,But I was going to call the air carrier accident or catastrophic accident involving passengers.,passengers.,14,0.9229940176010132,4.336
+segment,SPEAKER_00,132.82,148.28,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",,,0.645109700606616,6.733
+word,SPEAKER_00,132.82,133.0,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",We,0,0.96451336145401,6.733
+word,SPEAKER_00,133.0,133.48,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",usually,1,0.9115056991577148,6.733
+word,SPEAKER_00,133.48,133.92,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",dispatch,2,0.987581729888916,6.733
+word,SPEAKER_00,133.92,134.18,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",a,3,0.8867189884185791,6.733
+word,SPEAKER_00,134.18,134.42,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",team,4,0.991614818572998,6.733
+word,SPEAKER_00,134.42,134.72,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",from,5,0.9805368185043335,6.733
+word,SPEAKER_00,134.72,135.14,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.","Washington,",6,0.996752142906189,6.733
+word,SPEAKER_00,135.28,135.42,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",D,7,0.3682873249053955,6.733
+word,SPEAKER_00,135.42,135.78,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",".C.,",8,0.6941500504811605,6.733
+word,SPEAKER_00,135.78,136.28,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",that's,9,0.7725220322608948,6.733
+word,SPEAKER_00,136.28,136.74,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",comprised,10,0.9912276864051819,6.733
+word,SPEAKER_00,136.74,137.4,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",of,11,0.957925021648407,6.733
+word,SPEAKER_00,137.4,137.7,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",specialists,12,0.9130098223686218,6.733
+word,SPEAKER_00,137.7,138.12,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",in,13,0.8342000246047974,6.733
+word,SPEAKER_00,138.12,138.12,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",the,14,0.8654718995094299,6.733
+word,SPEAKER_00,138.12,138.66,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",various,15,0.9538455605506897,6.733
+word,SPEAKER_00,138.66,139.44,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.","areas,",16,0.8912584185600281,6.733
+word,SPEAKER_00,142.62,142.68,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",human,17,0.9872970581054688,6.733
+word,SPEAKER_00,142.68,143.18,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.","factors,",18,0.9341846108436584,6.733
+word,SPEAKER_00,144.58,144.58,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.","operations,",19,0.9929099678993225,6.733
+word,SPEAKER_00,145.48,145.86,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.","engineering,",20,0.5757468342781067,6.733
+word,SPEAKER_00,146.84,147.02,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",flight,21,0.5106701850891113,6.733
+word,SPEAKER_00,147.02,147.42,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.","recording,",22,0.3816955089569092,6.733
+word,SPEAKER_00,147.78,147.88,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",the,23,0.13951879739761353,6.733
+word,SPEAKER_00,147.88,148.28,"We usually dispatch a team from Washington, D.C., that's comprised of specialists in the various areas, human factors, operations, engineering, flight recording, the redout.",redout.,24,0.2861090824007988,6.733
+segment,SPEAKER_00,149.56,155.62,Each individual is responsible for a particular phase in the investigation.,,,0.6489902460766042,3.392
+word,SPEAKER_00,149.56,150.32,Each individual is responsible for a particular phase in the investigation.,Each,0,0.017892131581902504,3.392
+word,SPEAKER_00,150.32,150.84,Each individual is responsible for a particular phase in the investigation.,individual,1,0.9380051493644714,3.392
+word,SPEAKER_00,150.84,151.48,Each individual is responsible for a particular phase in the investigation.,is,2,0.9011707305908203,3.392
+word,SPEAKER_00,151.48,152.34,Each individual is responsible for a particular phase in the investigation.,responsible,3,0.9952784776687622,3.392
+word,SPEAKER_00,152.34,153.0,Each individual is responsible for a particular phase in the investigation.,for,4,0.9977383613586426,3.392
+word,SPEAKER_00,153.0,153.5,Each individual is responsible for a particular phase in the investigation.,a,5,0.9671014547348022,3.392
+word,SPEAKER_00,153.5,154.04,Each individual is responsible for a particular phase in the investigation.,particular,6,0.9489401578903198,3.392
+word,SPEAKER_00,154.04,154.56,Each individual is responsible for a particular phase in the investigation.,phase,7,0.83936607837677,3.392
+word,SPEAKER_00,154.56,154.86,Each individual is responsible for a particular phase in the investigation.,in,8,0.792635440826416,3.392
+word,SPEAKER_00,154.86,154.98,Each individual is responsible for a particular phase in the investigation.,the,9,0.9944461584091187,3.392
+word,SPEAKER_00,154.98,155.62,Each individual is responsible for a particular phase in the investigation.,investigation.,10,0.6318247318267822,3.392
+segment,SPEAKER_00,156.82,159.82,"Now, in general aviation, that's the investigation.",,,0.6489902460766042,3.0
+word,SPEAKER_00,156.82,156.88,"Now, in general aviation, that's the investigation.","Now,",0,0.3401182293891907,3.0
+word,SPEAKER_00,157.34,157.62,"Now, in general aviation, that's the investigation.",in,1,0.5512530207633972,3.0
+word,SPEAKER_00,157.62,157.84,"Now, in general aviation, that's the investigation.",general,2,0.8700017333030701,3.0
+word,SPEAKER_00,157.84,158.4,"Now, in general aviation, that's the investigation.","aviation,",3,0.8766845464706421,3.0
+word,SPEAKER_00,158.92,159.14,"Now, in general aviation, that's the investigation.",that's,4,0.4804355762898922,3.0
+word,SPEAKER_00,159.14,159.3,"Now, in general aviation, that's the investigation.",the,5,0.381289005279541,3.0
+word,SPEAKER_00,159.3,159.82,"Now, in general aviation, that's the investigation.",investigation.,6,0.8321673274040222,3.0
+segment,SPEAKER_00,159.98,170.45,"This is generally investigated by two people, team type and investigation.",,,0.6489902460766042,4.521
+word,SPEAKER_00,159.98,160.08,"This is generally investigated by two people, team type and investigation.",This,0,0.44398239254951477,4.521
+word,SPEAKER_00,160.08,160.34,"This is generally investigated by two people, team type and investigation.",is,1,0.9637193083763123,4.521
+word,SPEAKER_00,160.34,160.8,"This is generally investigated by two people, team type and investigation.",generally,2,0.8948214054107666,4.521
+word,SPEAKER_00,160.8,162.18,"This is generally investigated by two people, team type and investigation.",investigated,3,0.03445751592516899,4.521
+word,SPEAKER_00,162.18,163.24,"This is generally investigated by two people, team type and investigation.",by,4,0.7000204920768738,4.521
+word,SPEAKER_00,163.24,163.72,"This is generally investigated by two people, team type and investigation.",two,5,0.8470296263694763,4.521
+word,SPEAKER_00,163.72,164.16,"This is generally investigated by two people, team type and investigation.","people,",6,0.9855526089668274,4.521
+word,SPEAKER_00,169.29,169.45,"This is generally investigated by two people, team type and investigation.",team,7,0.307553231716156,4.521
+word,SPEAKER_00,169.45,169.81,"This is generally investigated by two people, team type and investigation.",type,8,0.9524464011192322,4.521
+word,SPEAKER_00,169.81,169.99,"This is generally investigated by two people, team type and investigation.",and,9,0.39113399386405945,4.521
+word,SPEAKER_00,169.99,170.45,"This is generally investigated by two people, team type and investigation.",investigation.,10,0.9173344373703003,4.521
+segment,SPEAKER_00,171.17,176.59,And the team will hold some instances comprised of 40 to 50 people.,,,0.6489902460766042,3.746
+word,SPEAKER_00,171.17,171.17,And the team will hold some instances comprised of 40 to 50 people.,And,0,0.17867416143417358,3.746
+word,SPEAKER_00,171.17,171.43,And the team will hold some instances comprised of 40 to 50 people.,the,1,0.6939809918403625,3.746
+word,SPEAKER_00,171.43,171.73,And the team will hold some instances comprised of 40 to 50 people.,team,2,0.9819860458374023,3.746
+word,SPEAKER_00,171.73,172.63,And the team will hold some instances comprised of 40 to 50 people.,will,3,0.24797044694423676,3.746
+word,SPEAKER_00,172.63,173.03,And the team will hold some instances comprised of 40 to 50 people.,hold,4,0.4999856948852539,3.746
+word,SPEAKER_00,173.03,173.25,And the team will hold some instances comprised of 40 to 50 people.,some,5,0.9516298770904541,3.746
+word,SPEAKER_00,173.25,173.71,And the team will hold some instances comprised of 40 to 50 people.,instances,6,0.9978467226028442,3.746
+word,SPEAKER_00,173.71,174.45,And the team will hold some instances comprised of 40 to 50 people.,comprised,7,0.5727216005325317,3.746
+word,SPEAKER_00,174.45,175.13,And the team will hold some instances comprised of 40 to 50 people.,of,8,0.9029368758201599,3.746
+word,SPEAKER_00,175.13,175.43,And the team will hold some instances comprised of 40 to 50 people.,40,9,0.6179682016372681,3.746
+word,SPEAKER_00,175.43,175.57,And the team will hold some instances comprised of 40 to 50 people.,to,10,0.8897107243537903,3.746
+word,SPEAKER_00,175.57,175.83,And the team will hold some instances comprised of 40 to 50 people.,50,11,0.9695929288864136,3.746
+word,SPEAKER_00,175.83,176.59,And the team will hold some instances comprised of 40 to 50 people.,people.,12,0.9968852400779724,3.746
+segment,SPEAKER_01,177.9,184.64,This is something like the localization over Grand Canyon.,,,0.6831231745160142,5.143
+word,SPEAKER_01,177.9,178.52,This is something like the localization over Grand Canyon.,This,0,0.27071768045425415,5.143
+word,SPEAKER_01,178.52,178.88,This is something like the localization over Grand Canyon.,is,1,0.9758687615394592,5.143
+word,SPEAKER_01,181.6,181.84,This is something like the localization over Grand Canyon.,something,2,0.9609390497207642,5.143
+word,SPEAKER_01,181.84,182.24,This is something like the localization over Grand Canyon.,like,3,0.9677078127861023,5.143
+word,SPEAKER_01,182.24,182.74,This is something like the localization over Grand Canyon.,the,4,0.9730841517448425,5.143
+word,SPEAKER_01,182.74,183.3,This is something like the localization over Grand Canyon.,localization,5,0.13591350708156824,5.143
+word,SPEAKER_01,183.3,183.88,This is something like the localization over Grand Canyon.,over,6,0.9736976623535156,5.143
+word,SPEAKER_01,183.88,184.24,This is something like the localization over Grand Canyon.,Grand,7,0.1688864678144455,5.143
+word,SPEAKER_01,184.24,184.64,This is something like the localization over Grand Canyon.,Canyon.,8,0.9614794254302979,5.143
+segment,SPEAKER_01,185.44,188.34,"That's where you big teams go out, yes, and work on it.",,,0.6831231745160142,2.9
+word,SPEAKER_01,185.44,185.64,"That's where you big teams go out, yes, and work on it.",That's,0,0.5899141505360603,2.9
+word,SPEAKER_01,185.64,185.72,"That's where you big teams go out, yes, and work on it.",where,1,0.8535180687904358,2.9
+word,SPEAKER_01,185.72,186.0,"That's where you big teams go out, yes, and work on it.",you,2,0.6770511269569397,2.9
+word,SPEAKER_01,186.0,186.06,"That's where you big teams go out, yes, and work on it.",big,3,0.8093356490135193,2.9
+word,SPEAKER_01,186.06,186.4,"That's where you big teams go out, yes, and work on it.",teams,4,0.6948997974395752,2.9
+word,SPEAKER_01,186.4,186.68,"That's where you big teams go out, yes, and work on it.",go,5,0.9768692851066589,2.9
+word,SPEAKER_01,186.68,187.18,"That's where you big teams go out, yes, and work on it.","out,",6,0.7175899744033813,2.9
+word,SPEAKER_01,187.36,187.46,"That's where you big teams go out, yes, and work on it.","yes,",7,0.7178764343261719,2.9
+word,SPEAKER_01,187.54,187.64,"That's where you big teams go out, yes, and work on it.",and,8,0.9372367262840271,2.9
+word,SPEAKER_01,187.64,187.84,"That's where you big teams go out, yes, and work on it.",work,9,0.6883076429367065,2.9
+word,SPEAKER_01,187.84,188.1,"That's where you big teams go out, yes, and work on it.",on,10,0.967958927154541,2.9
+word,SPEAKER_01,188.1,188.34,"That's where you big teams go out, yes, and work on it.",it.,11,0.8827225565910339,2.9
+segment,SPEAKER_00,190.1,194.7,"To work we over the past 10 years, we've had only order a move up.",,,0.6831231745160142,4.6
+word,SPEAKER_00,190.1,190.2,"To work we over the past 10 years, we've had only order a move up.",To,0,0.50472092628479,4.6
+word,SPEAKER_00,190.2,190.38,"To work we over the past 10 years, we've had only order a move up.",work,1,0.5942220091819763,4.6
+word,SPEAKER_00,190.38,190.62,"To work we over the past 10 years, we've had only order a move up.",we,2,0.5713616609573364,4.6
+word,SPEAKER_00,190.62,190.78,"To work we over the past 10 years, we've had only order a move up.",over,3,0.799248993396759,4.6
+word,SPEAKER_00,190.78,190.94,"To work we over the past 10 years, we've had only order a move up.",the,4,0.9892954230308533,4.6
+word,SPEAKER_00,190.94,191.18,"To work we over the past 10 years, we've had only order a move up.",past,5,0.6604466438293457,4.6
+word,SPEAKER_00,191.18,191.44,"To work we over the past 10 years, we've had only order a move up.",10,6,0.7397233843803406,4.6
+word,SPEAKER_00,191.44,191.78,"To work we over the past 10 years, we've had only order a move up.","years,",7,0.9990050196647644,4.6
+word,SPEAKER_00,192.02,192.22,"To work we over the past 10 years, we've had only order a move up.",we've,8,0.8906148076057434,4.6
+word,SPEAKER_00,192.22,192.72,"To work we over the past 10 years, we've had only order a move up.",had,9,0.8181577920913696,4.6
+word,SPEAKER_00,192.72,193.52,"To work we over the past 10 years, we've had only order a move up.",only,10,0.31248483061790466,4.6
+word,SPEAKER_00,193.52,193.88,"To work we over the past 10 years, we've had only order a move up.",order,11,0.7787545323371887,4.6
+word,SPEAKER_00,193.88,194.08,"To work we over the past 10 years, we've had only order a move up.",a,12,0.36519575119018555,4.6
+word,SPEAKER_00,194.08,194.16,"To work we over the past 10 years, we've had only order a move up.",move,13,0.3940852880477905,4.6
+word,SPEAKER_00,194.16,194.7,"To work we over the past 10 years, we've had only order a move up.",up.,14,0.7683535218238831,4.6
+segment,SPEAKER_00,196.1,206.09,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",,,0.6831231745160142,3.324
+word,SPEAKER_00,196.1,196.34,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",But,0,0.49786463379859924,3.324
+word,SPEAKER_00,196.34,196.44,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",we,1,0.9747527241706848,3.324
+word,SPEAKER_00,196.44,196.8,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",called,2,0.592249870300293,3.324
+word,SPEAKER_00,196.8,197.16,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",team,3,0.5712433457374573,3.324
+word,SPEAKER_00,197.16,197.8,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",type,4,0.9335769414901733,3.324
+word,SPEAKER_00,197.8,198.6,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",investigations,5,0.8449719548225403,3.324
+word,SPEAKER_00,198.6,199.06,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",a,6,0.9548724293708801,3.324
+word,SPEAKER_00,199.06,199.48,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.","year,",7,0.9993895292282104,3.324
+word,SPEAKER_00,201.59,201.59,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",where,8,0.6645050644874573,3.324
+word,SPEAKER_00,201.59,202.11,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",from,9,0.6074711084365845,3.324
+word,SPEAKER_00,202.11,202.55,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",8,10,0.5020427703857422,3.324
+word,SPEAKER_00,202.55,202.89,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",to,11,0.7471951246261597,3.324
+word,SPEAKER_00,202.89,203.35,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",14,12,0.9965631365776062,3.324
+word,SPEAKER_00,203.35,204.21,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",major,13,0.7222036719322205,3.324
+word,SPEAKER_00,204.21,204.81,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",catastrophic,14,0.5239506959915161,3.324
+word,SPEAKER_00,204.81,205.39,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",accidents,15,0.9353028535842896,3.324
+word,SPEAKER_00,205.39,205.71,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",a,16,0.9839677214622498,3.324
+word,SPEAKER_00,205.71,206.09,"But we called team type investigations a year, where from 8 to 14 major catastrophic accidents a year.",year.,17,0.9994832277297974,3.324
+segment,SPEAKER_00,206.81,212.37,And that number has remained fairly static since so about 1965 or 56.,,,0.6831231745160142,5.56
+word,SPEAKER_00,206.81,207.07,And that number has remained fairly static since so about 1965 or 56.,And,0,0.8474562168121338,5.56
+word,SPEAKER_00,207.07,207.25,And that number has remained fairly static since so about 1965 or 56.,that,1,0.9773198366165161,5.56
+word,SPEAKER_00,207.25,207.75,And that number has remained fairly static since so about 1965 or 56.,number,2,0.9930000305175781,5.56
+word,SPEAKER_00,207.75,208.15,And that number has remained fairly static since so about 1965 or 56.,has,3,0.47529613971710205,5.56
+word,SPEAKER_00,208.15,208.55,And that number has remained fairly static since so about 1965 or 56.,remained,4,0.9636031985282898,5.56
+word,SPEAKER_00,208.55,208.93,And that number has remained fairly static since so about 1965 or 56.,fairly,5,0.9986888766288757,5.56
+word,SPEAKER_00,208.93,209.39,And that number has remained fairly static since so about 1965 or 56.,static,6,0.9645997285842896,5.56
+word,SPEAKER_00,209.39,209.85,And that number has remained fairly static since so about 1965 or 56.,since,7,0.9916354417800903,5.56
+word,SPEAKER_00,209.85,210.25,And that number has remained fairly static since so about 1965 or 56.,so,8,0.23720398545265198,5.56
+word,SPEAKER_00,210.25,210.55,And that number has remained fairly static since so about 1965 or 56.,about,9,0.6828585863113403,5.56
+word,SPEAKER_00,210.55,211.65,And that number has remained fairly static since so about 1965 or 56.,1965,10,0.787710428237915,5.56
+word,SPEAKER_00,211.65,212.01,And that number has remained fairly static since so about 1965 or 56.,or,11,0.9022167921066284,5.56
+word,SPEAKER_00,212.01,212.37,And that number has remained fairly static since so about 1965 or 56.,56.,12,0.2589060962200165,5.56

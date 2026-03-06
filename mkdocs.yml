@@ -1,0 +1,47 @@
+site_name: speech-mine
+site_description: Speech diarization and transcript analysis toolkit
+repo_url: https://github.com/your-org/speech-mine
+repo_name: your-org/speech-mine
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - toc.integrate
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Modules:
+    - extract: extract.md
+    - format: format.md
+    - chunk: chunk.md
+    - search: search.md
+  - Output Format: output-format.md
+  - Model Options: models.md
+  - Troubleshooting: troubleshooting.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - tables
+  - toc:
+      permalink: true

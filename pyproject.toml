@@ -28,15 +28,18 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "TODO"
-Repository = "TODO"
-Issues = "TODO"
+Homepage = "https://github.com/your-org/speech-mine"
+Repository = "https://github.com/your-org/speech-mine"
+Issues = "https://github.com/your-org/speech-mine/issues"
 
 [project.scripts]
 speech-mine = "speech_mine.diarizer.cli:main"
-extract-audio = "speech_mine.diarizer.cli_extract:main"
-format-script = "speech_mine.diarizer.cli_format:main"
-chunk-audio = "speech_mine.pickaxe.cli_chunk:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/speech_mine"]
+
+[dependency-groups]
+dev = [
+    "mkdocs-material>=9.7.4",
+    "pytest>=8.4.2",
+]
