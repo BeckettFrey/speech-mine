@@ -36,7 +36,7 @@ See [docs/installation.md](docs/installation.md) for library dependency setup an
 ## Quick Start
 
 > [!Note]
-> speech-mine is flexible and adapts to your use case. The commands below show a generalized example workflow. For more granular control, use the Python API directly—see [docs/python-api.md](docs/python-api.md).
+> speech-mine is flexible and adapts to your use case. The commands below show a generalized example workflow. For more granular control, use the Python API directly.
 
 ```bash
 # 1. (Optional) Chunk a long recording into segments
