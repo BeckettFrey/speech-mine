@@ -2492,6 +2492,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "mkdocs-material" },
+    { name = "pytest" },
 ]
 
 [package.metadata]
@@ -2507,7 +2508,10 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "mkdocs-material", specifier = ">=9.7.4" }]
+dev = [
+    { name = "mkdocs-material", specifier = ">=9.7.4" },
+    { name = "pytest", specifier = ">=8.4.2" },
+]
 
 [[package]]
 name = "speechbrain"
