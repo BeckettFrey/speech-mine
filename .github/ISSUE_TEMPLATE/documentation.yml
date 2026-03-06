@@ -1,0 +1,36 @@
+name: Documentation
+description: Missing, incorrect, or unclear documentation
+labels: ["documentation"]
+
+body:
+  - type: dropdown
+    id: doc-location
+    attributes:
+      label: Where is the issue?
+      options:
+        - docs/extract.md
+        - docs/format.md
+        - docs/chunk.md
+        - docs/search.md
+        - docs/installation.md
+        - README
+        - Docstrings / inline code comments
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What's wrong or missing?
+      placeholder: The installation doc doesn't mention that ffmpeg must be installed separately for pydub to work on Linux.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix or addition
+      description: Optional — paste corrected text or describe what should be added.
+    validations:
+      required: false

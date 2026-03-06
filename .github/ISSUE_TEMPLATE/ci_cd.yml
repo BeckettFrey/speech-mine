@@ -1,0 +1,35 @@
+name: CI / CD
+description: Issue with publishing, docs deployment, or GitHub Actions workflows
+labels: ["ci/cd"]
+
+body:
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Which workflow?
+      options:
+        - publish.yml (PyPI release)
+        - docs.yml (MkDocs / GitHub Pages)
+        - Both
+        - New workflow needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-broke
+    attributes:
+      label: What went wrong or what's needed?
+      description: Paste a link to the failed run or describe the gap.
+      placeholder: |
+        The publish workflow failed on the `uv build` step after bumping to Python 3.12.
+        Run: https://github.com/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: extras
+    attributes:
+      label: Anything else?
+      description: Relevant logs, proposed workflow changes, or context.
+    validations:
+      required: false

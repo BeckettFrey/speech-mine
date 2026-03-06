@@ -1,0 +1,62 @@
+name: Feature Request
+description: Propose a new capability or improvement
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before proposing, consider: does this help people get better transcripts, work with more audio formats, or make the toolkit easier to use?
+
+  - type: dropdown
+    id: motivation
+    attributes:
+      label: What drives this request?
+      options:
+        - It solves a concrete problem I have
+        - It fills a gap compared to similar tools
+        - It would make speech-mine more useful to a broader audience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or gap (if applicable)
+      description: If this addresses a real frustration or limitation, describe it. Skip if purely additive.
+      placeholder: |
+        When working with long interviews (2+ hrs), chunking is necessary but the current YAML config
+        requires me to specify timestamps manually. There's no way to auto-split on silence.
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you add or change? Be as concrete as you can — CLI flags, new module, behavior change, etc.
+      placeholder: |
+        A `--auto-chunk` flag on `extract` that uses silence detection (e.g. via pydub) to split
+        the audio before transcription, without needing a YAML config.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Other approaches, workarounds, or external tools that partially solve this.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: willing-to-contribute
+    attributes:
+      label: Would you be willing to open a PR for this?
+      options:
+        - "Yes"
+        - "Maybe, with guidance"
+        - "No"
+    validations:
+      required: true
