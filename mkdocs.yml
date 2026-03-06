@@ -5,6 +5,8 @@ repo_name: your-org/speech-mine
 
 theme:
   name: material
+  logo: hero.png
+  favicon: hero.png
   palette:
     - scheme: default
       primary: indigo

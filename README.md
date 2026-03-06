@@ -1,6 +1,8 @@
 
 # speech-mine
 
+![speech-mine](docs/hero.png)
+
 Speech diarization and transcript analysis toolkit. Extract speaker-labeled transcripts from audio, format them into readable scripts, search them with fuzzy matching, and pre-process audio with chunking.
 
 ## Modules
