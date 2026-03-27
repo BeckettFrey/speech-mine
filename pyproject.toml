@@ -3,6 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
+authors = [{name = "Beckett Frey", email = "code@beckettfrey.com"}]
 name = "speech-mine"
 version = "1.0.0"
 description = "A powerful tool for extracting and analyzing speech data from audio files with known speaker counts and contents."
