@@ -208,3 +208,7 @@ __marimo__/
 
 # macOS files
 .DS_Storesite/
+
+# Claude
+#  Claude is an AI assistant by Anthropic. `.claudeignore` specifies files/directories to
+CLAUDE.md
