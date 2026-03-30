@@ -145,7 +145,7 @@ class TestAudioChunker:
 
     @patch('pydub.AudioSegment')
     def test_process_audio_file_basic(self, mock_audio_segment):
-        """Test basic audio file processing"""
+        """Test basic audio file processing with a YAML config path"""
         # Mock audio segment
         mock_audio = Mock()
         mock_audio.__len__ = Mock(return_value=120000)  # 120 seconds in milliseconds
@@ -153,39 +153,65 @@ class TestAudioChunker:
         mock_audio_segment.from_wav.return_value = mock_audio
 
         chunker = AudioChunker()
-        
+
         # Create temporary files
         chunks_data = [
             {"start": 0.0, "end": 30.0, "name": "intro"},
             {"start": 30.0, "end": 60.0}  # No name
         ]
-        
+
         config_path = self.create_sample_config(chunks_data)
-        
+
         with tempfile.TemporaryDirectory() as temp_dir:
             # Create a dummy audio file
             audio_path = os.path.join(temp_dir, "test.wav")
             Path(audio_path).touch()
-            
+
             output_dir = os.path.join(temp_dir, "output")
-            
+
             try:
                 output_files = chunker.process_audio_file(audio_path, config_path, output_dir)
-                
+
                 # Check that output directory was created
                 assert os.path.exists(output_dir)
-                
+
                 # Check that we get expected number of files
                 assert len(output_files) == 2
-                
+
                 # Check filename patterns
                 expected_files = ["0.intro.wav", "1.wav"]  # Sorted by start time
                 for expected in expected_files:
                     expected_path = os.path.join(output_dir, expected)
                     assert expected_path in output_files
-                    
+
             finally:
                 os.unlink(config_path)
+
+    @patch('pydub.AudioSegment')
+    def test_process_audio_file_with_list(self, mock_audio_segment):
+        """Test audio file processing with a list of chunk dicts (no YAML file)"""
+        mock_audio = Mock()
+        mock_audio.__len__ = Mock(return_value=120000)
+        mock_audio.__getitem__ = Mock(return_value=Mock())
+        mock_audio_segment.from_wav.return_value = mock_audio
+
+        chunker = AudioChunker()
+        chunks = [
+            {"start": 0.0, "end": 30.0, "name": "intro"},
+            {"start": 30.0, "end": 60.0},
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            audio_path = os.path.join(temp_dir, "test.wav")
+            Path(audio_path).touch()
+            output_dir = os.path.join(temp_dir, "output")
+
+            output_files = chunker.process_audio_file(audio_path, chunks, output_dir)
+
+            assert os.path.exists(output_dir)
+            assert len(output_files) == 2
+            assert os.path.join(output_dir, "0.intro.wav") in output_files
+            assert os.path.join(output_dir, "1.wav") in output_files
 
     def test_process_audio_file_non_wav(self):
         """Test processing fails with non-wav files"""
@@ -230,24 +256,35 @@ class TestAudioChunker:
 
 class TestConvenienceFunction:
     """Test the convenience function"""
-    
+
     @patch('speech_mine.pickaxe.chunk.AudioChunker')
-    def test_chunk_audio_file(self, mock_chunker_class):
-        """Test the convenience function calls AudioChunker correctly"""
+    def test_chunk_audio_file_with_yaml_path(self, mock_chunker_class):
+        """Test the convenience function passes a YAML path through correctly"""
         mock_chunker = Mock()
         mock_chunker.process_audio_file.return_value = ["file1.wav", "file2.wav"]
         mock_chunker_class.return_value = mock_chunker
-        
-        result = chunk_audio_file("audio.wav", "config.yaml", "output", 
-                                 fade_in=100, fade_out=200, silence_padding=50)
-        
-        # Check that AudioChunker was initialized with correct parameters
-        mock_chunker_class.assert_called_once_with(fade_in_duration=100, 
+
+        result = chunk_audio_file("audio.wav", "config.yaml", "output",
+                                  fade_in=100, fade_out=200, silence_padding=50)
+
+        mock_chunker_class.assert_called_once_with(fade_in_duration=100,
                                                    fade_out_duration=200,
                                                    silence_padding=50)
-        
-        # Check that process_audio_file was called
         mock_chunker.process_audio_file.assert_called_once_with("audio.wav", "config.yaml", "output")
-        
-        # Check return value
         assert result == ["file1.wav", "file2.wav"]
+
+    @patch('speech_mine.pickaxe.chunk.AudioChunker')
+    def test_chunk_audio_file_with_list(self, mock_chunker_class):
+        """Test the convenience function passes a chunk list through correctly"""
+        mock_chunker = Mock()
+        mock_chunker.process_audio_file.return_value = ["file1.wav"]
+        mock_chunker_class.return_value = mock_chunker
+
+        chunks = [{"start": 0.0, "end": 30.0, "name": "intro"}]
+        result = chunk_audio_file("audio.wav", chunks, "output")
+
+        mock_chunker_class.assert_called_once_with(fade_in_duration=0,
+                                                   fade_out_duration=0,
+                                                   silence_padding=0)
+        mock_chunker.process_audio_file.assert_called_once_with("audio.wav", chunks, "output")
+        assert result == ["file1.wav"]
