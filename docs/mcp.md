@@ -97,6 +97,8 @@ compute_type   "float16" (default), "int8", or "float32"
 num_speakers   Exact speaker count if known
 min_speakers   Minimum speakers (default 1)
 max_speakers   Maximum speakers
+batch_size     WhisperX transcription batch size (default 16, reduce if OOM)
+language       Language code e.g. "en", "fr" (auto-detected if omitted)
 ```
 
 ### `chunk_audio`
