@@ -239,17 +239,19 @@ def extract_audio(
     num_speakers: Optional[int] = None,
     min_speakers: int = 1,
     max_speakers: Optional[int] = None,
+    batch_size: int = 16,
+    language: Optional[str] = None,
 ) -> str:
     """
-    Transcribe an audio file with speaker diarization and save to CSV.
+    Transcribe an audio file with forced alignment and speaker diarization, saving to CSV.
 
-    This runs `speech-mine extract` in a subprocess — it can take several
-    minutes depending on file length and hardware.
+    Uses WhisperX: transcription → forced word-level alignment → speaker diarization.
+    This runs `speech-mine extract` in a subprocess — it can take several minutes.
 
     Args:
         input_file: Path to the input audio (.wav, .mp3, .ogg, .flac, .m4a, .webm).
         output_csv: Destination path for the output CSV transcript.
-        hf_token: HuggingFace access token (required for pyannote models).
+        hf_token: HuggingFace access token (required for speaker diarization).
         model: Whisper model size. One of tiny, base, small, medium,
                large-v2, large-v3 (default), turbo.
         device: Device — "auto" (default), "cpu", or "cuda".
@@ -257,6 +259,8 @@ def extract_audio(
         num_speakers: Exact speaker count if known (improves accuracy).
         min_speakers: Minimum speakers. Default 1.
         max_speakers: Maximum speakers. Omit for no limit.
+        batch_size: WhisperX transcription batch size (default 16, reduce if OOM).
+        language: Language code (e.g. "en", "fr"). Auto-detected if omitted.
 
     Returns:
         Status message with the path to the output CSV on success, or an
@@ -270,11 +274,14 @@ def extract_audio(
         "--device", device,
         "--compute-type", compute_type,
         "--min-speakers", str(min_speakers),
+        "--batch-size", str(batch_size),
     ]
     if num_speakers is not None:
         cmd += ["--num-speakers", str(num_speakers)]
     if max_speakers is not None:
         cmd += ["--max-speakers", str(max_speakers)]
+    if language is not None:
+        cmd += ["--language", language]
 
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode == 0:
