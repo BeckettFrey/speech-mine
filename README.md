@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-A Python toolkit for speaker-diarized transcription and transcript analysis. Built on <a href="https://github.com/SYSTRAN/faster-whisper">faster-whisper</a> and <a href="https://github.com/pyannote/pyannote-audio">pyannote.audio</a>; extract word-level, speaker-labeled CSVs from audio, then search, format, and chunk them (one step at a time).
+A Python toolkit for speaker-diarized transcription and transcript analysis. Built on <a href="https://github.com/m-bain/whisperX">WhisperX</a>; extract word-level, forced-aligned, speaker-labeled CSVs from audio, then search, format, and chunk them.
 </p>
 
 ## Modules

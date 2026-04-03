@@ -41,11 +41,13 @@ dependencies = [
 
 ## HuggingFace Token
 
-The `extract` module requires a HuggingFace token to download pyannote models:
+The `extract` module requires a HuggingFace token for speaker diarization:
 
 1. Create account at [huggingface.co](https://huggingface.co)
 2. Go to Settings → Access Tokens → New token (read permissions)
-3. Accept the user agreement at [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1)
+3. Accept the user agreements at:
+    - [pyannote/speaker-diarization-community-1](https://huggingface.co/pyannote/speaker-diarization-community-1)
+    - [pyannote/segmentation-3.0](https://huggingface.co/pyannote/segmentation-3.0)
 
 Pass the token via `--hf-token YOUR_TOKEN` on every `extract` call.
 

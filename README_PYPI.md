@@ -2,7 +2,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-BeckettFrey%2Fspeech--mine-181717?logo=github)](https://github.com/BeckettFrey/speech-mine)
 
-Speech diarization and transcript analysis toolkit. Extract speaker-labeled transcripts from audio, format them into readable scripts, search them with fuzzy matching, and pre-process audio with chunking.
+Speech diarization and transcript analysis toolkit. Extract speaker-labeled transcripts from audio using [WhisperX](https://github.com/m-bain/whisperX) (transcription + forced alignment + diarization), then format, search, and chunk them.
 
 ## Modules
 
