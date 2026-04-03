@@ -324,7 +324,7 @@ def chunk_audio(
 
     output_files = chunk_audio_file(
         audio_path=audio_file,
-        config_path=config_file,
+        config=config_file,
         output_dir=output_dir,
         fade_in=fade_in,
         fade_out=fade_out,
