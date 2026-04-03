@@ -1,11 +1,11 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
 authors = [{name = "Beckett Frey", email = "code@beckettfrey.com"}]
 name = "speech-mine"
-version = "1.0.0"
+dynamic = ["version"]
 description = "A powerful tool for extracting and analyzing speech data from audio files with known speaker counts and contents."
 readme = "README_PYPI.md"
 
@@ -37,6 +37,9 @@ Issues = "https://github.com/your-org/speech-mine/issues"
 
 [project.scripts]
 speech-mine = "speech_mine.diarizer.cli:main"
+
+[tool.hatch.version]
+source = "vcs"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/speech_mine"]
