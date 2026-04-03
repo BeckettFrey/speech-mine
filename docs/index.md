@@ -22,6 +22,16 @@ If you need sub-word timestamps for forced subtitle sync or phonetic research, u
 pip install speech-mine
 ```
 
+## Claude Code / MCP
+
+speech-mine includes an MCP server. To add it to Claude Code:
+
+```bash
+claude mcp add speech-mine -- uvx --from speech-mine speech-mine-mcp
+```
+
+See [MCP Server](mcp.md) for all available tools and usage.
+
 ## Modules
 
 | Module | Description |
