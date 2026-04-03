@@ -58,6 +58,20 @@ uv run speech-mine search "topic of interest" output.csv --pretty
 uv run speech-mine chunk recording.wav segments.yaml clips/
 ```
 
+## MCP Server
+
+speech-mine includes an [MCP](https://modelcontextprotocol.io) server that exposes all tools to Claude Code and other MCP clients.
+
+**Install globally (no clone needed):**
+
+```bash
+claude mcp add speech-mine -- uvx --from speech-mine speech-mine-mcp
+```
+
+This pulls the latest published version from PyPI via `uvx`. After running it, restart Claude Code — the `search_transcript`, `extract_audio`, `chunk_audio`, and other tools will be available in your session.
+
+**If you cloned the repo:** the included `.mcp.json` configures the server automatically when you open the project in Claude Code.
+
 ## Documentation
 
 ```bash
