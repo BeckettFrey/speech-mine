@@ -38,22 +38,36 @@ speech-mine chunk recording.wav config.yaml chunks/ \
 
 ## Library
 
+The `config` argument accepts either a path to a YAML file or a list of chunk dicts directly.
+
 ```python
 from speech_mine.pickaxe.chunk import chunk_audio_file, AudioChunker
 
-# Convenience function
+# From a YAML file
 output_files = chunk_audio_file(
     audio_path="recording.wav",
-    config_path="config.yaml",
+    config="config.yaml",
     output_dir="chunks/",
     fade_in=500,
     fade_out=500,
     silence_padding=100,
 )
 
+# Programmatically — no YAML file needed
+output_files = chunk_audio_file(
+    audio_path="recording.wav",
+    config=[
+        {"start": 0.0, "end": 30.0, "name": "intro"},
+        {"start": 30.0, "end": 120.0, "name": "discussion"},
+        {"start": 120.0, "end": 300.0},
+    ],
+    output_dir="chunks/",
+)
+
 # Or use the class directly
 chunker = AudioChunker(fade_in_duration=500, fade_out_duration=500, silence_padding=100)
-output_files = chunker.process_audio_file("recording.wav", "config.yaml", "chunks/")
+chunker.process_audio_file("recording.wav", "config.yaml", "chunks/")
+chunker.process_audio_file("recording.wav", [{"start": 0.0, "end": 30.0}], "chunks/")
 ```
 
 ## YAML config format
