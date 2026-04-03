@@ -11,7 +11,7 @@ import logging
 import math
 import os
 import time
-from typing import List, Optional
+from typing import Optional
 
 import pandas as pd
 import torch
@@ -99,11 +99,23 @@ class SpeechDiarizationProcessor:
 
         logger.info("Loading audio...")
         audio = whisperx.load_audio(audio_path)
+        duration = round(len(audio) / 16000, 3)
 
         logger.info("Transcribing with WhisperX...")
         start = time.time()
         result = self.model.transcribe(audio, batch_size=self.batch_size)
         logger.info(f"Transcription done in {time.time() - start:.2f}s — language: {result.get('language')}")
+
+        result["duration"] = duration
+        # WhisperX surfaces language_probability via the underlying faster-whisper info
+        # when it runs detect_language; fall back to 0.0 if unavailable.
+        if "language_probability" not in result:
+            try:
+                _lang, prob, _all = self.model.model.detect_language(audio)
+                result["language_probability"] = round(prob, 4)
+            except Exception:
+                result["language_probability"] = 0.0
+
         return audio, result
 
     def align(self, audio, result: dict) -> dict:
@@ -130,7 +142,7 @@ class SpeechDiarizationProcessor:
             raise ValueError("HuggingFace token required for speaker diarization")
 
         logger.info("Loading diarization pipeline...")
-        diarize_model = DiarizationPipeline(use_auth_token=self.hf_token, device=self.device)
+        diarize_model = DiarizationPipeline(token=self.hf_token, device=self.device)
 
         params = {}
         if self.num_speakers is not None:
