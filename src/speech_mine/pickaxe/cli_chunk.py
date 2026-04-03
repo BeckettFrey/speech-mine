@@ -97,7 +97,7 @@ def chunk_command(args: argparse.Namespace) -> int:
     try:
         output_files = chunk_audio_file(
             audio_path=args.audio_file,
-            config_path=args.config_file,
+            config=args.config_file,
             output_dir=args.output_dir,
             fade_in=args.fade_in,
             fade_out=args.fade_out,

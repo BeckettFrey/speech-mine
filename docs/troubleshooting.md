@@ -33,7 +33,7 @@ Failed to load pyannote pipeline
 **Fix:** Make sure you have:
 
 1. A valid HuggingFace token with read permissions
-2. Accepted the user agreement at [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1)
+2. Accepted the user agreements at [pyannote/speaker-diarization-community-1](https://huggingface.co/pyannote/speaker-diarization-community-1) and [pyannote/segmentation-3.0](https://huggingface.co/pyannote/segmentation-3.0)
 
 ## No matches found in search
 

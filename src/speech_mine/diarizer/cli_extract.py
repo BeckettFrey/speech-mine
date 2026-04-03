@@ -85,7 +85,19 @@ Examples:
         type=int,
         help="Maximum number of speakers. If not specified, no maximum limit."
     )
-    
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=16,
+        metavar="N",
+        help="WhisperX transcription batch size (default: 16, reduce if out of memory)"
+    )
+    parser.add_argument(
+        "--language",
+        default=None,
+        help="Language code (e.g. 'en', 'fr'). Auto-detected if not specified."
+    )
+
     return parser
 
 
@@ -128,7 +140,9 @@ def extract_command(args: argparse.Namespace) -> int:
             hf_token=args.hf_token,
             num_speakers=args.num_speakers,
             min_speakers=args.min_speakers,
-            max_speakers=args.max_speakers
+            max_speakers=args.max_speakers,
+            batch_size=args.batch_size,
+            language=args.language,
         )
         
         # Process audio file

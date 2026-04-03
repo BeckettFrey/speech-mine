@@ -2,7 +2,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-BeckettFrey%2Fspeech--mine-181717?logo=github)](https://github.com/BeckettFrey/speech-mine)
 
-Speech diarization and transcript analysis toolkit. Extract speaker-labeled transcripts from audio, format them into readable scripts, search them with fuzzy matching, and pre-process audio with chunking.
+Speech diarization and transcript analysis toolkit. Extract speaker-labeled transcripts from audio using [WhisperX](https://github.com/m-bain/whisperX) (transcription + forced alignment + diarization), then format, search, and chunk them.
 
 ## Modules
 
@@ -121,7 +121,7 @@ from speech_mine.pickaxe.chunk import chunk_audio_file
 # chunks.yaml defines start/end times for each segment
 output_files = chunk_audio_file(
     audio_path="long_recording.wav",
-    config_path="chunks.yaml",
+    config="chunks.yaml",
     output_dir="chunks/",
     fade_in=50,
     fade_out=50,
@@ -139,6 +139,16 @@ chunks:
   - start: 120
     end: 300
 ```
+
+## MCP Server
+
+speech-mine ships an [MCP](https://modelcontextprotocol.io) server. To add it to Claude Code:
+
+```bash
+claude mcp add speech-mine -- uvx --from speech-mine speech-mine-mcp
+```
+
+Restart Claude Code after running this — all speech-mine tools (`search_transcript`, `extract_audio`, `chunk_audio`, etc.) will be available in your session.
 
 ## Documentation
 

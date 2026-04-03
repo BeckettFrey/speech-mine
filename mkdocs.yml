@@ -32,6 +32,7 @@ nav:
     - format: format.md
     - chunk: chunk.md
     - search: search.md
+  - MCP Server: mcp.md
   - Output Format: output-format.md
   - Model Options: models.md
   - Troubleshooting: troubleshooting.md

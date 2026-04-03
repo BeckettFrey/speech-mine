@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-A Python toolkit for speaker-diarized transcription and transcript analysis. Built on <a href="https://github.com/SYSTRAN/faster-whisper">faster-whisper</a> and <a href="https://github.com/pyannote/pyannote-audio">pyannote.audio</a>; extract word-level, speaker-labeled CSVs from audio, then search, format, and chunk them (one step at a time).
+A Python toolkit for speaker-diarized transcription and transcript analysis. Built on <a href="https://github.com/m-bain/whisperX">WhisperX</a>; extract word-level, forced-aligned, speaker-labeled CSVs from audio, then search, format, and chunk them.
 </p>
 
 ## Modules
@@ -57,6 +57,20 @@ uv run speech-mine search "topic of interest" output.csv --pretty
 # 5. (Optional) Chunk the recording again around segments of interest
 uv run speech-mine chunk recording.wav segments.yaml clips/
 ```
+
+## MCP Server
+
+speech-mine includes an [MCP](https://modelcontextprotocol.io) server that exposes all tools to Claude Code and other MCP clients.
+
+**Install globally (no clone needed):**
+
+```bash
+claude mcp add speech-mine -- uvx --from speech-mine speech-mine-mcp
+```
+
+This pulls the latest published version from PyPI via `uvx`. After running it, restart Claude Code — the `search_transcript`, `extract_audio`, `chunk_audio`, and other tools will be available in your session.
+
+**If you cloned the repo:** the included `.mcp.json` configures the server automatically when you open the project in Claude Code.
 
 ## Documentation
 
