@@ -21,6 +21,7 @@ classifiers = [
 requires-python = ">=3.11"
 dependencies = [
     "faster-whisper>=1.2.0",
+    "mcp==1.27.0",
     "pandas>=2.3.2",
     "pyannote-audio>=3.3.2",
     "pydub>=0.25.1",
@@ -37,6 +38,7 @@ Issues = "https://github.com/your-org/speech-mine/issues"
 
 [project.scripts]
 speech-mine = "speech_mine.diarizer.cli:main"
+speech-mine-mcp = "speech_mine.mcp_server:main"
 
 [tool.hatch.version]
 source = "vcs"
