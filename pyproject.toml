@@ -30,9 +30,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-org/speech-mine"
-Repository = "https://github.com/your-org/speech-mine"
-Issues = "https://github.com/your-org/speech-mine/issues"
+Homepage = "https://github.com/BeckettFrey/speech-mine"
+Repository = "https://github.com/BeckettFrey/speech-mine"
+Issues = "https://github.com/BeckettFrey/speech-mine/issues"
 
 [project.scripts]
 speech-mine = "speech_mine.diarizer.cli:main"
