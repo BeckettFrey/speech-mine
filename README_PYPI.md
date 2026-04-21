@@ -145,10 +145,30 @@ chunks:
 speech-mine ships an [MCP](https://modelcontextprotocol.io) server. To add it to Claude Code:
 
 ```bash
-claude mcp add speech-mine -- uvx --from speech-mine speech-mine-mcp
+claude mcp add speech-mine -e HF_TOKEN=hf_xxx -- uvx --from speech-mine speech-mine-mcp
 ```
 
 Restart Claude Code after running this — all speech-mine tools (`search_transcript`, `extract_audio`, `chunk_audio`, etc.) will be available in your session.
+
+The `-e HF_TOKEN=hf_xxx` flag injects your HuggingFace token into the MCP server's environment, where `extract_audio` reads it automatically. If you only plan to use the read-only tools (`search_transcript`, `get_transcript_stats`, `read_transcript`, `format_transcript`, `chunk_audio`), you can omit the `-e` flag.
+
+> [!Warning]
+> **Never pass `HF_TOKEN` as an argument to the `extract_audio` MCP tool** — that routes the secret through the LLM's conversation context where it can be logged or cached. Always provide it via the MCP client's environment-injection (the `-e` flag above, or the equivalent `env` block in `.mcp.json` / `~/.claude.json`). The server reads `HF_TOKEN` from its own environment; the LLM should never see it.
+>
+> Equivalent `.mcp.json` / `~/.claude.json` form:
+> ```json
+> {
+>   "mcpServers": {
+>     "speech-mine": {
+>       "command": "uvx",
+>       "args": ["--from", "speech-mine", "speech-mine-mcp"],
+>       "env": { "HF_TOKEN": "hf_xxx" }
+>     }
+>   }
+> }
+> ```
+>
+> For Claude Desktop or other MCP clients, use the equivalent environment/secret field on the server entry.
 
 ## Documentation
 
