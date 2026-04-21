@@ -232,7 +232,7 @@ def format_transcript(
 def extract_audio(
     input_file: str,
     output_csv: str,
-    hf_token: str,
+    hf_token: Optional[str] = None,
     model: str = "large-v3",
     device: str = "auto",
     compute_type: str = "float16",
@@ -252,6 +252,9 @@ def extract_audio(
         input_file: Path to the input audio (.wav, .mp3, .ogg, .flac, .m4a, .webm).
         output_csv: Destination path for the output CSV transcript.
         hf_token: HuggingFace access token (required for speaker diarization).
+            Prefer leaving this unset and configuring `HF_TOKEN` in the MCP
+            server's env block — the server will pick it up automatically and
+            the secret never enters the LLM conversation.
         model: Whisper model size. One of tiny, base, small, medium,
                large-v2, large-v3 (default), turbo.
         device: Device — "auto" (default), "cpu", or "cuda".
@@ -266,10 +269,19 @@ def extract_audio(
         Status message with the path to the output CSV on success, or an
         error message on failure.
     """
+    import os as _os
+    token = hf_token or _os.environ.get("HF_TOKEN")
+    if not token:
+        return (
+            "Extraction failed: no HuggingFace token available. Set HF_TOKEN "
+            "in the MCP server's environment (preferred) or pass it as the "
+            "`hf_token` argument."
+        )
+
     cmd = [
         sys.executable, "-m", "speech_mine.diarizer.cli",
         "extract", input_file, output_csv,
-        "--hf-token", hf_token,
+        "--hf-token", token,
         "--model", model,
         "--device", device,
         "--compute-type", compute_type,
