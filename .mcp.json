@@ -2,7 +2,10 @@
   "mcpServers": {
     "speech-mine": {
       "command": "uvx",
-      "args": ["--from", "speech-mine", "speech-mine-mcp"]
+      "args": ["--from", "speech-mine", "speech-mine-mcp"],
+      "environment": {
+        "HF_TOKEN": "hf_xxx"
+      }
     }
   }
 }

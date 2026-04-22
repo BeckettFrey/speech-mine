@@ -9,8 +9,11 @@
 </p>
 
 <p align="center">
-A Python toolkit for speaker-diarized transcription and transcript analysis. Built on <a href="https://github.com/m-bain/whisperX">WhisperX</a>; extract word-level, forced-aligned, speaker-labeled CSVs from audio, then search, format, and chunk them.
+A Python toolkit for formatting audio snippets with an agent in the loop. Built on <a href="https://github.com/m-bain/whisperX">WhisperX</a>; extract word-level, forced-aligned, speaker-labeled CSVs from audio, then search, format, and chunk them.
 </p>
+
+> [!IMPORTANT]
+> Versions below `1.0.0` are considered unstable; APIs, CLI flags, and output formats may change without notice between releases. Pin an exact version if you need stability, and review the changelog before upgrading. Feedback, bug reports, and feature requests are very welcome; please open an [issue](https://github.com/beckettfrey/speech-mine/issues).
 
 ## Modules
 
@@ -21,25 +24,22 @@ A Python toolkit for speaker-diarized transcription and transcript analysis. Bui
 | `chunk` | Split audio into segments via YAML config | [→](docs/chunk.md) |
 | `search` | Fuzzy search transcripts by word or phrase | [→](docs/search.md) |
 
-
 ## Installation
 
 ```bash
+# Install uv (skip if already installed)
 curl -LsSf https://astral.sh/uv/install.sh | sh
+# Clone the repository
 git clone https://github.com/beckettfrey/speech-mine
 cd speech-mine
+# Install dependencies into a local virtualenv
 uv sync
 ```
 
-See [docs/installation.md](docs/installation.md) for library dependency setup and HuggingFace token configuration.
-
-> [!IMPORTANTW]
-> A `.env` file (e.g. holding `HF_TOKEN` for the integration test suite) is intended for **local development only**. Never feed `.env` contents to an LLM, paste them into a chat, commit them, or expose them as MCP tool inputs — tokens placed in conversation context can be logged, cached, or echoed back into tool calls. Pass credentials through environment variables or the CLI's `--hf-token` flag at invocation time instead.
+> [!IMPORTANT]
+> A `.env` file (e.g. holding `HF_TOKEN` for the integration test suite) is intended for **local development only**. Never feed `.env` contents to an LLM, paste them into a chat, commit them, or expose them as MCP tool inputs. Tokens placed in conversation context can be logged, cached, or echoed back into tool calls.
 
 ## Quick Start
-
-> [!Note]
-> speech-mine is flexible and adapts to your use case. The commands below show a generalized example workflow. For more granular control, use the Python API directly.
 
 ```bash
 # 1. (Optional) Chunk a long recording into segments
@@ -63,17 +63,15 @@ uv run speech-mine chunk recording.wav segments.yaml clips/
 
 ## MCP Server
 
-speech-mine includes an [MCP](https://modelcontextprotocol.io) server that exposes all tools to Claude Code and other MCP clients.
+speech-mine includes an [MCP](https://modelcontextprotocol.io) server that exposes all tools to Claude Code and other MCP clients. 
 
 **Install globally (no clone needed):**
 
 ```bash
-claude mcp add speech-mine -- uvx --from speech-mine speech-mine-mcp
+claude mcp add speech-mine --env HF_TOKEN=your_huggingface_token -- uvx --from speech-mine speech-mine-mcp
 ```
 
 This pulls the latest published version from PyPI via `uvx`. After running it, restart Claude Code — the `search_transcript`, `extract_audio`, `chunk_audio`, and other tools will be available in your session.
-
-**If you cloned the repo:** the included `.mcp.json` configures the server automatically when you open the project in Claude Code.
 
 ## Documentation
 

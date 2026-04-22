@@ -6,8 +6,7 @@ build-backend = "hatchling.build"
 authors = [{name = "Beckett Frey", email = "code@beckettfrey.com"}]
 name = "speech-mine"
 dynamic = ["version"]
-description = "A powerful tool for extracting and analyzing speech data from audio files with known speaker counts and contents."
-readme = "README_PYPI.md"
+description = "A tool for formatting audio with an agent in the loop."
 
 license = "MIT"
 classifiers = [
