@@ -11,9 +11,12 @@ Exposes speech-mine capabilities as tools for Claude Code:
 """
 
 import json
+import os
 import subprocess
 import sys
-from typing import Optional
+import traceback
+from functools import wraps
+from typing import Any, Optional
 
 from mcp.server.fastmcp import FastMCP
 
@@ -25,10 +28,87 @@ mcp = FastMCP("speech-mine")
 
 
 # ---------------------------------------------------------------------------
+# Error helpers
+# ---------------------------------------------------------------------------
+
+class ToolInputError(ValueError):
+    """Raised for user-facing input validation failures in MCP tools."""
+
+
+def _error(message: str, **context: Any) -> str:
+    payload = {"error": message}
+    if context:
+        payload["details"] = {k: v for k, v in context.items() if v is not None}
+    return json.dumps(payload, indent=2, ensure_ascii=False)
+
+
+def _require_file(path: str, label: str) -> None:
+    if not path:
+        raise ToolInputError(f"{label} is required")
+    if not os.path.exists(path):
+        raise ToolInputError(f"{label} not found: {path}")
+    if not os.path.isfile(path):
+        raise ToolInputError(f"{label} is not a file: {path}")
+
+
+def _require_choice(value: str, choices: tuple, label: str) -> None:
+    if value not in choices:
+        raise ToolInputError(
+            f"invalid {label}: {value!r}. Must be one of: {', '.join(choices)}"
+        )
+
+
+def _safe_tool(func):
+    """Decorator: convert exceptions in an MCP tool into a clear JSON error string."""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except ToolInputError as e:
+            return _error(str(e), tool=func.__name__, error_type="input_error")
+        except FileNotFoundError as e:
+            return _error(
+                f"file not found: {e.filename or e}",
+                tool=func.__name__,
+                error_type="file_not_found",
+            )
+        except PermissionError as e:
+            return _error(
+                f"permission denied: {e.filename or e}",
+                tool=func.__name__,
+                error_type="permission_error",
+            )
+        except (json.JSONDecodeError, UnicodeDecodeError) as e:
+            return _error(
+                f"failed to parse file: {e}",
+                tool=func.__name__,
+                error_type="parse_error",
+            )
+        except KeyError as e:
+            return _error(
+                f"missing expected field: {e}. The input file may be malformed or "
+                f"not a speech-mine transcript.",
+                tool=func.__name__,
+                error_type="schema_error",
+            )
+        except Exception as e:
+            return _error(
+                f"{type(e).__name__}: {e}",
+                tool=func.__name__,
+                error_type="internal_error",
+                traceback=traceback.format_exc(limit=5),
+            )
+    return wrapper
+
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
 def _load_tool(csv_path: str, metadata_path: Optional[str] = None) -> TranscriptionAccessTool:
+    _require_file(csv_path, "csv_path")
+    if metadata_path:
+        _require_file(metadata_path, "metadata_path")
     tool = TranscriptionAccessTool()
     tool.load_from_files(csv_path, metadata_path)
     return tool
@@ -39,6 +119,7 @@ def _load_tool(csv_path: str, metadata_path: Optional[str] = None) -> Transcript
 # ---------------------------------------------------------------------------
 
 @mcp.tool()
+@_safe_tool
 def search_transcript(
     csv_path: str,
     query: str,
@@ -62,9 +143,33 @@ def search_transcript(
 
     Returns:
         JSON string with search results including matched text, timestamps,
-        speaker, and similarity scores.
+        speaker, and similarity scores. On failure, returns a JSON object
+        with an `error` field describing what went wrong.
     """
+    if not query or not query.strip():
+        raise ToolInputError("query cannot be empty")
+    _require_choice(output_type, ("utterance", "timestamp"), "output_type")
+    if not 0.0 <= min_similarity <= 1.0:
+        raise ToolInputError(
+            f"min_similarity must be between 0.0 and 1.0, got {min_similarity}"
+        )
+    if not 0.0 <= max_similarity <= 1.0:
+        raise ToolInputError(
+            f"max_similarity must be between 0.0 and 1.0, got {max_similarity}"
+        )
+    if min_similarity > max_similarity:
+        raise ToolInputError(
+            f"min_similarity ({min_similarity}) cannot exceed max_similarity ({max_similarity})"
+        )
+    if top_k < 1:
+        raise ToolInputError(f"top_k must be >= 1, got {top_k}")
+
     tool = _load_tool(csv_path, metadata_path)
+    if not tool.words:
+        raise ToolInputError(
+            f"no words found in transcript: {csv_path}. The file may be empty "
+            f"or not a speech-mine transcript CSV."
+        )
 
     matches = speech_fuzzy_match(
         word_list=tool.words,
@@ -150,6 +255,7 @@ def search_transcript(
 
 
 @mcp.tool()
+@_safe_tool
 def get_transcript_stats(
     csv_path: str,
     metadata_path: Optional[str] = None,
@@ -170,6 +276,7 @@ def get_transcript_stats(
 
 
 @mcp.tool()
+@_safe_tool
 def read_transcript(
     csv_path: str,
     format_type: str = "utterances",
@@ -186,12 +293,18 @@ def read_transcript(
     Returns:
         JSON string with the transcript data in the requested format.
     """
+    _require_choice(
+        format_type,
+        ("utterances", "segments", "words", "json"),
+        "format_type",
+    )
     tool = _load_tool(csv_path, metadata_path)
     data = tool.export(format_type)
     return json.dumps(data, indent=2, ensure_ascii=False)
 
 
 @mcp.tool()
+@_safe_tool
 def format_transcript(
     input_csv: str,
     output_txt: str,
@@ -206,12 +319,13 @@ def format_transcript(
         speakers_json: Optional JSON file mapping SPEAKER_00 labels to real names.
 
     Returns:
-        The content of the formatted script, or an error message.
+        The content of the formatted script, or a JSON error payload.
     """
-    import os
-
-    if not os.path.exists(input_csv):
-        return f"Error: CSV file not found: {input_csv}"
+    _require_file(input_csv, "input_csv")
+    if not output_txt:
+        raise ToolInputError("output_txt is required")
+    if speakers_json:
+        _require_file(speakers_json, "speakers_json")
 
     custom_speakers = None
     if speakers_json:
@@ -229,6 +343,7 @@ def format_transcript(
 
 
 @mcp.tool()
+@_safe_tool
 def extract_audio(
     input_file: str,
     output_csv: str,
@@ -269,13 +384,36 @@ def extract_audio(
         Status message with the path to the output CSV on success, or an
         error message on failure.
     """
-    import os as _os
-    token = hf_token or _os.environ.get("HF_TOKEN")
+    _require_file(input_file, "input_file")
+    if not output_csv:
+        raise ToolInputError("output_csv is required")
+    _require_choice(device, ("auto", "cpu", "cuda"), "device")
+    _require_choice(compute_type, ("float16", "int8", "float32"), "compute_type")
+    _require_choice(
+        model,
+        ("tiny", "base", "small", "medium", "large-v2", "large-v3", "turbo"),
+        "model",
+    )
+    if min_speakers < 1:
+        raise ToolInputError(f"min_speakers must be >= 1, got {min_speakers}")
+    if num_speakers is not None and num_speakers < 1:
+        raise ToolInputError(f"num_speakers must be >= 1, got {num_speakers}")
+    if max_speakers is not None and max_speakers < min_speakers:
+        raise ToolInputError(
+            f"max_speakers ({max_speakers}) cannot be less than min_speakers ({min_speakers})"
+        )
+    if batch_size < 1:
+        raise ToolInputError(f"batch_size must be >= 1, got {batch_size}")
+
+    output_dir = os.path.dirname(output_csv)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
+    token = hf_token or os.environ.get("HF_TOKEN")
     if not token:
-        return (
-            "Extraction failed: no HuggingFace token available. Set HF_TOKEN "
-            "in the MCP server's environment (preferred) or pass it as the "
-            "`hf_token` argument."
+        raise ToolInputError(
+            "no HuggingFace token available. Set HF_TOKEN in the MCP server's "
+            "environment (preferred) or pass it as the `hf_token` argument."
         )
 
     cmd = [
@@ -295,13 +433,31 @@ def extract_audio(
     if language is not None:
         cmd += ["--language", language]
 
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+    except FileNotFoundError as e:
+        return _error(
+            f"failed to launch extraction subprocess: {e}. Is the speech-mine "
+            f"package installed in the MCP server's Python environment?",
+            tool="extract_audio",
+            error_type="subprocess_launch_error",
+        )
+
     if result.returncode == 0:
         return f"Extraction complete. CSV saved to: {output_csv}\n\n{result.stdout}"
-    return f"Extraction failed (exit {result.returncode}):\n{result.stderr}"
+    return _error(
+        f"extraction subprocess exited with code {result.returncode}",
+        tool="extract_audio",
+        error_type="subprocess_failed",
+        exit_code=result.returncode,
+        stderr=(result.stderr or "").strip() or None,
+        stdout_tail=(result.stdout or "").strip()[-500:] or None,
+        command=" ".join(cmd[:3]) + " ...",
+    )
 
 
 @mcp.tool()
+@_safe_tool
 def chunk_audio(
     audio_file: str,
     config_file: str,
@@ -335,11 +491,18 @@ def chunk_audio(
     """
     from .pickaxe.chunk import chunk_audio_file
 
-    import os
-    if not os.path.exists(audio_file):
-        return f"Error: audio file not found: {audio_file}"
-    if not os.path.exists(config_file):
-        return f"Error: config file not found: {config_file}"
+    _require_file(audio_file, "audio_file")
+    _require_file(config_file, "config_file")
+    if not output_dir:
+        raise ToolInputError("output_dir is required")
+    if fade_in < 0:
+        raise ToolInputError(f"fade_in must be >= 0, got {fade_in}")
+    if fade_out < 0:
+        raise ToolInputError(f"fade_out must be >= 0, got {fade_out}")
+    if padding < 0:
+        raise ToolInputError(f"padding must be >= 0, got {padding}")
+
+    os.makedirs(output_dir, exist_ok=True)
 
     output_files = chunk_audio_file(
         audio_path=audio_file,

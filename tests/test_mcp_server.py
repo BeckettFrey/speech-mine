@@ -27,6 +27,14 @@ from speech_mine.mcp_server import (
 # Shared fixtures
 # ---------------------------------------------------------------------------
 
+def _touch(path):
+    """Create an empty file at path and return its string form."""
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.touch()
+    return str(p)
+
+
 SAMPLE_CSV = """type,speaker,start,end,text,word,word_position,confidence,overlap_duration
 segment,SPEAKER_01,0.0,1.72,Hello world.,,,-0.18,1.689
 word,SPEAKER_01,0.0,0.5,Hello world.,Hello,0,0.95,1.689
@@ -145,9 +153,11 @@ class TestGetTranscriptStats:
         assert stats["duration"] == 5.0
         assert stats["language"] == "en"
 
-    def test_missing_csv_raises(self, tmp_path):
-        with pytest.raises(FileNotFoundError):
-            get_transcript_stats(str(tmp_path / "nope.csv"))
+    def test_missing_csv_returns_error(self, tmp_path):
+        result = json.loads(get_transcript_stats(str(tmp_path / "nope.csv")))
+        assert "error" in result
+        assert "csv_path not found" in result["error"]
+        assert result["details"]["error_type"] == "input_error"
 
 
 # ---------------------------------------------------------------------------
@@ -179,10 +189,10 @@ class TestReadTranscript:
         assert isinstance(data, dict)
         assert {"metadata", "utterances", "stats"} <= set(data)
 
-    def test_invalid_format_falls_back_to_json(self, csv_path):
-        data = json.loads(read_transcript(csv_path, format_type="bogus"))
-        assert isinstance(data, dict)
-        assert "utterances" in data
+    def test_invalid_format_returns_error(self, csv_path):
+        result = json.loads(read_transcript(csv_path, format_type="bogus"))
+        assert "error" in result
+        assert "invalid format_type" in result["error"]
 
     def test_metadata_path(self, csv_path, metadata_path):
         data = json.loads(
@@ -212,7 +222,9 @@ class TestFormatTranscript:
     def test_missing_csv_returns_error(self, tmp_path):
         out_txt = tmp_path / "script.txt"
         msg = format_transcript(str(tmp_path / "missing.csv"), str(out_txt))
-        assert msg.startswith("Error:")
+        result = json.loads(msg)
+        assert "error" in result
+        assert "input_csv not found" in result["error"]
         assert not out_txt.exists()
 
     def test_with_speaker_mapping(self, csv_path, tmp_path):
@@ -240,7 +252,7 @@ class TestExtractAudio:
         with patch("speech_mine.mcp_server.subprocess.run") as run:
             run.return_value = self._completed(0, "ok-output", "")
             result = extract_audio(
-                input_file="in.wav",
+                input_file=_touch(tmp_path / "in.wav"),
                 output_csv=str(tmp_path / "out.csv"),
                 hf_token="hf_xxx",
             )
@@ -256,7 +268,7 @@ class TestExtractAudio:
             "speech_mine.diarizer.cli",
             "extract",
         ]
-        assert "in.wav" in cmd
+        assert any(c.endswith("in.wav") for c in cmd)
         assert str(tmp_path / "out.csv") in cmd
         # Default flag values
         assert cmd[cmd.index("--hf-token") + 1] == "hf_xxx"
@@ -274,7 +286,7 @@ class TestExtractAudio:
         with patch("speech_mine.mcp_server.subprocess.run") as run:
             run.return_value = self._completed(0, "", "")
             extract_audio(
-                input_file="in.wav",
+                input_file=_touch(tmp_path / "in.wav"),
                 output_csv=str(tmp_path / "out.csv"),
                 hf_token="hf_xxx",
                 model="turbo",
@@ -301,7 +313,7 @@ class TestExtractAudio:
         with patch("speech_mine.mcp_server.subprocess.run") as run:
             run.return_value = self._completed(0, "", "")
             extract_audio(
-                input_file="in.wav",
+                input_file=_touch(tmp_path / "in.wav"),
                 output_csv=str(tmp_path / "out.csv"),
                 # hf_token omitted — must fall back to HF_TOKEN env var
             )
@@ -313,7 +325,7 @@ class TestExtractAudio:
         with patch("speech_mine.mcp_server.subprocess.run") as run:
             run.return_value = self._completed(0, "", "")
             extract_audio(
-                input_file="in.wav",
+                input_file=_touch(tmp_path / "in.wav"),
                 output_csv=str(tmp_path / "out.csv"),
                 hf_token="hf_explicit",
             )
@@ -324,7 +336,7 @@ class TestExtractAudio:
         monkeypatch.delenv("HF_TOKEN", raising=False)
         with patch("speech_mine.mcp_server.subprocess.run") as run:
             result = extract_audio(
-                input_file="in.wav",
+                input_file=_touch(tmp_path / "in.wav"),
                 output_csv=str(tmp_path / "out.csv"),
             )
         assert "no HuggingFace token" in result
@@ -334,13 +346,15 @@ class TestExtractAudio:
         with patch("speech_mine.mcp_server.subprocess.run") as run:
             run.return_value = self._completed(2, "", "boom")
             result = extract_audio(
-                input_file="in.wav",
+                input_file=_touch(tmp_path / "in.wav"),
                 output_csv=str(tmp_path / "out.csv"),
                 hf_token="hf_xxx",
             )
-        assert "Extraction failed" in result
-        assert "exit 2" in result
-        assert "boom" in result
+        parsed = json.loads(result)
+        assert "error" in parsed
+        assert "exited with code 2" in parsed["error"]
+        assert parsed["details"]["exit_code"] == 2
+        assert parsed["details"]["stderr"] == "boom"
 
 
 # ---------------------------------------------------------------------------
@@ -356,7 +370,8 @@ class TestChunkAudio:
             config_file=str(config),
             output_dir=str(tmp_path / "out"),
         )
-        assert msg.startswith("Error: audio file not found")
+        parsed = json.loads(msg)
+        assert "audio_file not found" in parsed["error"]
 
     def test_missing_config_returns_error(self, tmp_path):
         audio = tmp_path / "in.wav"
@@ -366,7 +381,8 @@ class TestChunkAudio:
             config_file=str(tmp_path / "missing.yaml"),
             output_dir=str(tmp_path / "out"),
         )
-        assert msg.startswith("Error: config file not found")
+        parsed = json.loads(msg)
+        assert "config_file not found" in parsed["error"]
 
     def test_delegates_to_chunk_audio_file(self, tmp_path):
         audio = tmp_path / "in.wav"
