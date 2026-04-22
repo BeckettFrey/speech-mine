@@ -142,7 +142,7 @@ class SpeechDiarizationProcessor:
             raise ValueError("HuggingFace token required for speaker diarization")
 
         logger.info("Loading diarization pipeline...")
-        diarize_model = DiarizationPipeline(token=self.hf_token, device=self.device)
+        diarize_model = DiarizationPipeline(use_auth_token=self.hf_token, device=self.device)
 
         params = {}
         if self.num_speakers is not None:
