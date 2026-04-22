@@ -1,0 +1,6 @@
+flowchart LR
+    A[output.csv] --> B[TranscriptionAccessTool]
+    B --> C["speech_fuzzy_match<br/>rapidFuzz sliding window"]
+    D[Query String] --> C
+    C --> E["Ranked Matches<br/>start · end · score"]
+    E --> F["Utterance View<br/>or Timestamp View"]

@@ -1,0 +1,6 @@
+flowchart LR
+    A["Audio File<br/>.wav"] --> C[AudioChunker]
+    B["chunks.yaml<br/>start / end / name"] --> C
+    C --> D[0.intro.wav]
+    C --> E[1.wav]
+    C --> F["2.segment.wav<br/>..."]

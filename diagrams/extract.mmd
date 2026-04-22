@@ -1,0 +1,8 @@
+flowchart LR
+    A["Audio File<br/>.mp3 / .wav / .flac / ..."] --> B["faster-whisper<br/>Transcription"]
+    A --> C["pyannote.audio<br/>Diarization"]
+    B --> D["Word-level<br/>Timestamps"]
+    C --> E["Speaker<br/>Segments"]
+    D --> F[Alignment]
+    E --> F
+    F --> G["output.csv<br/>output_metadata.json"]
